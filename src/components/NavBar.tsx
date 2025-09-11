@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState, useCallback } from "react";
-import NavDesktop from "./NavDesktop";
-import NavMobile from "./NavMobile";
 
 type NavItem = {
   id: string;
@@ -25,11 +23,11 @@ const getNavItems = (items?: NavItem[]): NavItem[] =>
 const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
   const navItems = useMemo<NavItem[]>(() => getNavItems(items), [items]);
   const [activeId, setActiveId] = useState<string>(navItems[0]?.id ?? "");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const scrollToSection = useCallback(
     (id: string) => {
       const element = document.getElementById(id);
-      setActiveId(id);
       if (!element) return;
 
       const top =
@@ -89,18 +87,135 @@ const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
   }, [navItems]);
 
   return (
-    <nav aria-label="Primary" className="sticky top-5 z-50 p-4">
-      <div className="relative mx-auto w-1/2 rounded-full border border-black/10 bg-white/70 backdrop-blur-md backdrop-saturate-150 shadow-[0_1px_2px_rgba(0,0,0,0.04),_0_8px_24px_rgba(0,0,0,0.06)] px-3 py-2 md:px-4 md:py-2.5">
-        <NavDesktop
-          items={navItems}
-          activeId={activeId}
-          onNavigate={(id) => scrollToSection(id)}
-        />
-        <NavMobile
-          items={navItems}
-          activeId={activeId}
-          onNavigate={(id) => scrollToSection(id)}
-        />
+    <nav aria-label="Primary" className="z-50 px-4 md:sticky md:top-4">
+      <div className="relative mx-auto flex w-full max-w-5xl items-center justify-between md:justify-center">
+        {/* Desktop capsule (border-only) */}
+        <div className="hidden md:flex items-center">
+          <div className="flex items-center gap-4 rounded-full border border-white/20 bg-transparent px-5 py-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.25),_0_8px_30px_rgba(0,0,0,0.35)]">
+            <div className="hidden select-none items-center gap-2 rounded-full bg-white/10 px-2 py-1 text-xs font-mono tracking-tight text-slate-200 md:flex">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-slate-200"
+              >
+                <path
+                  d="M8 7L3 12L8 17"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M16 7L21 12L16 17"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M13 5L11 19"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>&lt;Dev /&gt;</span>
+            </div>
+
+            <ul className="hidden md:flex list-none items-center gap-7">
+              {navItems.map((item) => {
+                const isActive = item.id === activeId;
+                return (
+                  <li key={item.id}>
+                    <a
+                      href={`#${item.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection(item.id);
+                        setIsOpen(false);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          scrollToSection(item.id);
+                          setIsOpen(false);
+                        }
+                      }}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`inline-block px-1 py-1.5 text-sm font-medium transition-colors ${
+                        isActive
+                          ? "text-white"
+                          : "text-slate-300 hover:text-white"
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+
+        {/* Mobile hamburger (right corner) */}
+        <button
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav"
+          onClick={() => setIsOpen((v) => !v)}
+          className="md:hidden ml-auto inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-200 hover:bg-white/10"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 7h16M4 12h16M4 17h16"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+
+        {/* Mobile dropdown (top-right) */}
+        {isOpen && (
+          <ul
+            id="mobile-nav"
+            className="absolute right-4 top-[calc(100%+8px)] z-50 w-[min(90vw,20rem)] rounded-2xl border border-white/15 bg-black/70 p-2 shadow-xl backdrop-blur-md md:hidden"
+          >
+            {navItems.map((item) => {
+              const isActive = item.id === activeId;
+              return (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.id);
+                      setIsOpen(false);
+                    }}
+                    className={`block rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
+                      isActive
+                        ? "text-white bg-white/10"
+                        : "text-slate-200 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
     </nav>
   );

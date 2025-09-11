@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* App background: dark theme gradient with subtle grid */
+body {
+  color: #e5e7eb;
+  background: radial-gradient(
+      1000px 500px at 80% -10%,
+      rgba(99, 102, 241, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 450px at 10% 0%,
+      rgba(236, 72, 153, 0.16),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #0b1020 0%, #0a0f1e 40%, #0a0a0f 100%);
+}
+
+/* Optional subtle grid overlay for large screens */
+@media (min-width: 1024px) {
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(
+      circle at 50% 20%,
+      rgba(255, 255, 255, 0.5),
+      transparent 60%
+    );
+  }
+}
