@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "export": "next export",
+    "predeploy": "yarn build && yarn export",
+    "deploy": "touch out/.nojekyll && echo ${NEXT_PUBLIC_BASE_PATH:-/} > out/CNAME || true",
     "start": "next start",
     "lint": "eslint"
   },

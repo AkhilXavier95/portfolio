@@ -10,7 +10,7 @@ export default function Projects() {
       <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {PROJECTS.map((p) => (
           <article
-            key={p.title}
+            key={p.id}
             className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm backdrop-blur-sm transition hover:shadow-2xl hover:bg-white/10"
           >
             <div className="relative aspect-video overflow-hidden">
@@ -20,7 +20,7 @@ export default function Projects() {
                 fill
                 className="object-contain p-6 transition group-hover:scale-105"
               />
-              <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl" />
             </div>
             <div className="p-4">
               <h3 className="font-semibold text-slate-100">{p.title}</h3>

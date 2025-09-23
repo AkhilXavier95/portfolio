@@ -1,4 +1,3 @@
-import Image from "next/image";
 import SkillIcon from "@/components/SkillIcon";
 import { SKILLS } from "@/constants";
 
@@ -8,22 +7,22 @@ export default function Skills() {
       <h2 className="bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-2xl font-semibold text-transparent">
         Skills
       </h2>
-      <div className="mt-6 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 grid items-stretch gap-4 sm:grid-cols-1 lg:grid-cols-2">
         {SKILLS.map((skill) => (
           <div
-            key={skill}
+            key={skill.id}
             className="min-h-[120px] overflow-hidden rounded-2xl bg-white/5 shadow-sm backdrop-blur-sm"
           >
             <div className="grid h-full grid-cols-[72px_1fr] items-stretch">
               <div className="flex h-full items-center justify-center p-3">
-                <SkillIcon name={skill} className="h-full w-full" />
+                <SkillIcon src={skill.icon} className="h-full w-full" />
               </div>
               <div className="p-4">
                 <h3 className="text-sm font-semibold text-slate-100">
-                  {skill}
+                  {skill.name}
                 </h3>
                 <p className="mt-1 text-sm text-slate-300">
-                  Short note about your experience with {skill}.
+                  {skill.description}.
                 </p>
               </div>
             </div>
