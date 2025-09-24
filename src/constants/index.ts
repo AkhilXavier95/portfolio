@@ -45,7 +45,7 @@ export const SKILLS = [
   {
     id: 4,
     icon: "/nextjs.svg",
-    name: "React Native",
+    name: "Next.js",
     description:
       "Experienced in React Native, building cross-platform mobile applications with a focus on performance, user experience, and seamless integration with native modules."
   },
@@ -128,7 +128,7 @@ export const WORK: WorkItem[] = [
     role: "Software Engineer",
     period: "Jul 2024 — Present",
     summary:
-      "Developed a map-based custom product e-commerce platform using React, Next.js, and Mapbox, enhancing user experience and engagement.",
+      "Developing a map-based custom e-commerce platform using React, Next.js, and Mapbox. Enhanced user experience and engagement by implementing interactive product mapping and seamless AWS integrations.",
     skills: ["React", "TypeScript", "JavaScript", "AWS"]
   },
   {
@@ -136,15 +136,15 @@ export const WORK: WorkItem[] = [
     role: "Software Engineer",
     period: "May 2021 — May 2024",
     summary:
-      "Built and maintained multiple internal products using React, Tailwind CSS, and NeetoUI. Contributed to NeetoUI, a reusable design system applied across products",
+      "Built and maintained multiple internal products using React, Tailwind CSS, and NeetoUI. Contributed to NeetoUI, a reusable design system adopted across teams, improving development speed and consistency.",
     skills: ["React", "TypeScript", "Tailwind", "React Query"]
   },
   {
     company: "Fingent Global Solutions (Kochi, India)",
     role: "Software Engineer",
-    period: "Nov 2021 — Apr 2021",
+    period: "Nov 2020 — Apr 2021",
     summary:
-      "Developed educational platforms with focus on accessibility and responsiveness. Emphasized component reuse and maintainable code architecture",
+      "Built single-page applications (SPAs) using Redux and Redux-Saga for state management. Implemented PWA features, real-time chat modules with Socket.io and Quickblox, and persistent state handling for smoother user experience.",
     skills: ["React", "TypeScript", "Tailwind", "Redux"]
   },
   {
@@ -152,7 +152,7 @@ export const WORK: WorkItem[] = [
     role: "Software Engineer",
     period: "Sep 2018 — Oct 2020",
     summary:
-      "Built SPAs using Redux and Redux-Saga for state management. Implemented PWA features and persistent state management. Developed real-time chat modules using Socket.io and Quickblox",
+      "Built single-page applications (SPAs) using Redux and Redux-Saga for state management. Implemented PWA features, real-time chat modules with Socket.io and Quickblox, and persistent state handling for smoother user experience.",
     skills: ["React", "Redux", "JavaScript", "PWA"]
   }
 ];
