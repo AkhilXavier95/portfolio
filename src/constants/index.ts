@@ -129,7 +129,7 @@ export const WORK: WorkItem[] = [
     period: "Jul 2024 — Present",
     summary:
       "Developed a map-based custom product e-commerce platform using React, Next.js, and Mapbox, enhancing user experience and engagement.",
-    skills: ["React", "TypeScript", "TypeScript", "AWS"]
+    skills: ["React", "TypeScript", "JavaScript", "AWS"]
   },
   {
     company: "BigBinary (Kochi, India)",
