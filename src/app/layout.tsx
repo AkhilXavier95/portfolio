@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name - Frontend Developer",
+  title: "Akhil Xavier - Frontend Developer",
   description:
     "Frontend Developer specializing in React. I build fast, responsive, and user-friendly web applications."
 };
