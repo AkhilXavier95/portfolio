@@ -5,10 +5,10 @@ export default function About() {
         About me
       </h2>
       <p className="mt-3 text-slate-300 max-w-3xl leading-relaxed">
-        I'm a frontend developer with a passion for crafting exceptional digital
-        experiences using React. I believe that great frontend work sits at the
-        intersection of design, technology, and user needs—transforming ideas
-        into intuitive and interactive realities.
+        I&apos;m a frontend developer with a passion for crafting exceptional
+        digital experiences using React. I believe that great frontend work sits
+        at the intersection of design, technology, and user needs—transforming
+        ideas into intuitive and interactive realities.
         <br />
         <br />
         My day-to-day involves working with React, TypeScript, and tools like
@@ -17,8 +17,8 @@ export default function About() {
         ensuring applications are both powerful and pleasant to use.
         <br />
         <br />
-        When I'm not coding, you'll find me on the football field, exploring new
-        routes on my bicycle, or taking a break with my dogs.
+        When I&apos;m not coding, you&apos;ll find me on the football field,
+        exploring new routes on my bicycle, or taking a break with my dogs.
       </p>
     </section>
   );
