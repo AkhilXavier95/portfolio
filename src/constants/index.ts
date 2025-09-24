@@ -11,23 +11,55 @@ export const NAV_ITEMS = [
 ] as const;
 
 export const SOCIALS: Social[] = [
-  { name: "LinkedIn", href: "https://linkedin.com/" },
-  { name: "GitHub", href: "https://github.com/" },
-  { name: "Instagram", href: "https://instagram.com/" }
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/akhil-xavier-1b1a82155/"
+  },
+  { name: "GitHub", href: "https://github.com/AkhilXavier95/" }
 ];
 
-export const EMAIL = "you@example.com";
+export const EMAIL = "akhilxavier95@gmail.com";
 
 export const SKILLS = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Tailwind CSS"
+  {
+    id: 1,
+    icon: "/javascript.svg",
+    name: "JavaScript",
+    description:
+      "Experienced in building dynamic web applications using JavaScript, with a strong focus on ES6+ features and best practices."
+  },
+  {
+    id: 2,
+    icon: "/typescript.svg",
+    name: "TypeScript",
+    description:
+      "Proficient in TypeScript, leveraging its static typing and advanced features to enhance code quality and maintainability in large-scale projects."
+  },
+  {
+    id: 3,
+    icon: "/react.svg",
+    name: "React",
+    description:
+      "Skilled in React, creating responsive and user-friendly interfaces with a deep understanding of component-based architecture, hooks, and state management."
+  },
+  {
+    id: 4,
+    icon: "/nextjs.svg",
+    name: "React Native",
+    description:
+      "Experienced in React Native, building cross-platform mobile applications with a focus on performance, user experience, and seamless integration with native modules."
+  },
+  {
+    id: 6,
+    icon: "/tailwind.svg",
+    name: "Tailwind CSS",
+    description:
+      "Proficient in Tailwind CSS, utilizing its utility-first approach to rapidly design and implement responsive, modern web interfaces with a strong emphasis on consistency and scalability."
+  }
 ];
 
 export type Project = {
+  id: number;
   title: string;
   description: string;
   image: string;
@@ -38,29 +70,47 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    title: "Interactive Globe",
+    id: 1,
+    title: "Neeto",
+    description: "Affordable Alternatives to Popular SaaS Products.",
+    image: "/neetoui.svg",
+    tags: ["React.js", "JavaScript", "TypeScript", "React Query", "Tailwind"],
+    liveUrl: "https://neeto.com/"
+  },
+  {
+    id: 2,
+    title: "Boundri",
     description:
-      "3D WebGL globe with country hover, search, and animated arcs.",
-    image: "/globe.svg",
-    tags: ["Next.js", "Three.js", "TypeScript"],
-    liveUrl: "#",
-    codeUrl: "#"
+      "A web app showcasing 30+ years of mapping and satellite imagery expertise. Built with a focus on agricultural solutions, it provides users with interactive maps and unique technical tools for the Ag industry.",
+    image: "/boundri.svg",
+    tags: ["React", "Tailwind", "fabric js", "Mapbox", "JavaScript"],
+    liveUrl: "https://boundri.com/"
   },
   {
-    title: "Realtime Dashboard",
-    description: "Metrics dashboard with live websockets, auth, and theming.",
-    image: "/window.svg",
-    tags: ["React", "Tailwind", "Socket.io"],
-    liveUrl: "#",
-    codeUrl: "#"
+    id: 3,
+    title: "Biblingo",
+    description:
+      "Biblingo is the only language learning app that provides everything you need to go from zero knowledge of Greek and Hebrew to reading the Bible in its original languages – all in one place.",
+    image: "/biblingo.png",
+    tags: ["React", "Redux", "JavaScript"],
+    liveUrl: "https://biblingo.com/"
   },
   {
-    title: "Portfolio Starter",
-    description: "A11y-focused, performant portfolio with MDX blog support.",
-    image: "/vercel.svg",
-    tags: ["Next.js", "MDX", "Vercel"],
-    liveUrl: "#",
-    codeUrl: "#"
+    id: 4,
+    title: "Odin",
+    description: "An ed-tech solution for rural students.",
+    image: "/odin.svg",
+    tags: ["React", "Redux", "JavaScript", "PWA"],
+    liveUrl: "https://odineducation.org/"
+  },
+  {
+    id: 5,
+    title: "Total Parts Plus",
+    description:
+      "Total Parts Plus specializes in environmental compliance and obsolescence management solutions in the form of data content, web-based solutions and hosted services",
+    image: "/totalpartsplus.jpg",
+    tags: ["React", "Redux", "JavaScript", "PWA"],
+    liveUrl: "https://www.totalpartsplus.com/px/login.asp/"
   }
 ];
 
@@ -74,19 +124,35 @@ export type WorkItem = {
 
 export const WORK: WorkItem[] = [
   {
-    company: "Acme Corp",
-    role: "Frontend Engineer",
-    period: "2023 — Present",
+    company: "Black Hammer (Remote, US)",
+    role: "Software Engineer",
+    period: "Jul 2024 — Present",
     summary:
-      "Building design systems and data-heavy UIs. Drove Core Web Vitals from ‘Needs Improvement’ to ‘Good’.",
-    skills: ["Next.js", "React", "TypeScript", "Tailwind"]
+      "Developed a map-based custom product e-commerce platform using React, Next.js, and Mapbox, enhancing user experience and engagement.",
+    skills: ["React", "TypeScript", "JavaScript", "AWS"]
   },
   {
-    company: "Startup XYZ",
-    role: "Full‑stack Developer",
-    period: "2021 — 2023",
+    company: "BigBinary (Kochi, India)",
+    role: "Software Engineer",
+    period: "May 2021 — May 2024",
     summary:
-      "Shipped features end‑to‑end across API and frontend, with observability and CI automation.",
-    skills: ["Node.js", "Prisma", "PostgreSQL", "AWS"]
+      "Built and maintained multiple internal products using React, Tailwind CSS, and NeetoUI. Contributed to NeetoUI, a reusable design system applied across products",
+    skills: ["React", "TypeScript", "Tailwind", "React Query"]
+  },
+  {
+    company: "Fingent Global Solutions (Kochi, India)",
+    role: "Software Engineer",
+    period: "Nov 2021 — Apr 2021",
+    summary:
+      "Developed educational platforms with focus on accessibility and responsiveness. Emphasized component reuse and maintainable code architecture",
+    skills: ["React", "TypeScript", "Tailwind", "Redux"]
+  },
+  {
+    company: " Cubet Techno Labs (Kochi, India)",
+    role: "Software Engineer",
+    period: "Sep 2018 — Oct 2020",
+    summary:
+      "Built SPAs using Redux and Redux-Saga for state management. Implemented PWA features and persistent state management. Developed real-time chat modules using Socket.io and Quickblox",
+    skills: ["React", "Redux", "JavaScript", "PWA"]
   }
 ];

@@ -18,11 +18,11 @@ export default function Hero() {
         </div>
         <div>
           <h1 className="bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-3xl font-bold tracking-tight text-transparent md:text-4xl">
-            Hi, I’m Your Name
+            Hi, I’m Akhil Xavier
           </h1>
           <p className="mt-3 max-w-prose text-slate-300">
-            A short intro about who you are and what you do. Mention your focus
-            or interests.
+            I turn complex problems into simple, beautiful web applications
+            using React and modern frontend technologies.
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-3 text-sm">
             {SOCIALS.map((s) => (
@@ -34,7 +34,6 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1.5 text-slate-200 hover:bg-white/10"
               >
                 <SocialIcon name={s.name} className="h-4 w-4" />
-                <span>{s.name}</span>
               </a>
             ))}
             <a

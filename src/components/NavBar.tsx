@@ -146,11 +146,7 @@ const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
                         }
                       }}
                       aria-current={isActive ? "page" : undefined}
-                      className={`inline-block px-1 py-1.5 text-sm font-medium transition-colors ${
-                        isActive
-                          ? "text-white"
-                          : "text-slate-300 hover:text-white"
-                      }`}
+                      className="inline-block px-1 py-1.5 text-sm font-medium transition-colors text-slate-300 hover:text-white"
                     >
                       {item.label}
                     </a>
