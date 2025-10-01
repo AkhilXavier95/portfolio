@@ -1,23 +1,20 @@
 "use client";
 
 import React from "react";
+import Box from "./Box";
 
 type BoxesProps = {
   guess: string | null;
+  solution?: string;
 };
 
 const WORD_LENGTH = 5;
 
-const Boxes: React.FC<BoxesProps> = ({ guess }) => {
+const Boxes: React.FC<BoxesProps> = ({ guess, solution }) => {
   return (
     <div className="flex">
       {[...Array(WORD_LENGTH)].map((_, i) => (
-        <div
-          key={i}
-          className="w-10 h-10 border border-gray-100 m-1 text-2xl font-bold flex items-center justify-center"
-        >
-          {guess ? guess[i] : ""}
-        </div>
+        <Box key={i} i={i} guess={guess} solution={solution} />
       ))}
     </div>
   );
