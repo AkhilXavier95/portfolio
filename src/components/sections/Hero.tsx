@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="grid items-center gap-8 md:grid-cols-[220px_1fr]">
         <div className="mx-auto h-40 w-40 overflow-hidden rounded-full ring-2 ring-black/10 md:h-56 md:w-56">
           <Image
-            src="/next.svg"
+            src="/akhil.svg"
             alt="Your photo"
             width={224}
             height={224}
