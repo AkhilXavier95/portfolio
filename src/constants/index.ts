@@ -30,7 +30,7 @@ export const SKILLS = [
   },
   {
     id: 2,
-    icon: "/typescript.svg",
+    icon: "/types.svg",
     name: "TypeScript",
     description:
       "Proficient in TypeScript, leveraging its static typing and advanced features to enhance code quality and maintainability in large-scale projects."
@@ -111,6 +111,14 @@ export const PROJECTS: Project[] = [
     image: "/totalpartsplus.jpg",
     tags: ["React", "Redux", "JavaScript", "PWA"],
     liveUrl: "https://www.totalpartsplus.com/px/login.asp/"
+  },
+  {
+    id: 6,
+    title: "Wordle Game",
+    description: "A clone of the popular word guessing game Wordle.",
+    image: "/wordle.png",
+    tags: ["React", "TypeScript", "Tailwind"],
+    liveUrl: "/wordle"
   }
 ];
 
