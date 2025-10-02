@@ -30,7 +30,7 @@ export const SKILLS = [
   },
   {
     id: 2,
-    icon: "/typescript.svg",
+    icon: "/types.svg",
     name: "TypeScript",
     description:
       "Proficient in TypeScript, leveraging its static typing and advanced features to enhance code quality and maintainability in large-scale projects."
