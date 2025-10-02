@@ -111,6 +111,14 @@ export const PROJECTS: Project[] = [
     image: "/totalpartsplus.jpg",
     tags: ["React", "Redux", "JavaScript", "PWA"],
     liveUrl: "https://www.totalpartsplus.com/px/login.asp/"
+  },
+  {
+    id: 6,
+    title: "Wordle Game",
+    description: "A clone of the popular word guessing game Wordle.",
+    image: "/wordle.png",
+    tags: ["React", "TypeScript", "Tailwind"],
+    liveUrl: "/wordle"
   }
 ];
 
