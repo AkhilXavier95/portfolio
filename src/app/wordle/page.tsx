@@ -1,13 +1,17 @@
 "use client";
 
 import Boxes from "@/components/Boxes";
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 
+/**
+ * Wordle is a React component that implements a simple Wordle game where users try to guess a random 5-letter word.
+ */
 const Wordle = () => {
   const [solution, setSolution] = React.useState<string>("");
   const [guesses, setGuesses] = React.useState<string[]>(Array(6).fill(null));
   const [currentGuess, setCurrentGuess] = React.useState<string>("");
   const [isGameOver, setIsGameOver] = React.useState<boolean>(false);
+
   const getWord = async () => {
     const res = await fetch(
       "https://random-word-api.herokuapp.com/word?length=5"
@@ -20,6 +24,7 @@ const Wordle = () => {
   useEffect(() => {
     getWord();
   }, []);
+
   useEffect(() => {
     if (isGameOver) return;
 
@@ -32,41 +37,45 @@ const Wordle = () => {
     }
   }, [guesses, currentGuess, solution, isGameOver]);
 
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (solution === guesses[guesses.findIndex((g) => g === null) - 1]) return;
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      const currentIndex = guesses.findIndex((g) => g === null);
+      if (currentIndex > 0 && solution === guesses[currentIndex - 1]) return;
 
-    if (event.key === "Enter") {
-      setGuesses((prev) => {
-        const nextGuesses = [...prev];
-        const currentIndex = nextGuesses.findIndex((g) => g === null);
-        if (currentIndex !== -1 && currentGuess.length === 5) {
-          nextGuesses[currentIndex] = currentGuess;
-        }
-        return nextGuesses;
-      });
+      if (event.key === "Enter") {
+        setGuesses((prev) => {
+          const nextGuesses = [...prev];
+          const currentIndex = nextGuesses.findIndex((g) => g === null);
+          if (currentIndex !== -1 && currentGuess.length === 5) {
+            nextGuesses[currentIndex] = currentGuess;
+          }
+          return nextGuesses;
+        });
 
-      setCurrentGuess("");
+        setCurrentGuess("");
+        return;
+      }
+
+      if (event.key === "Backspace") {
+        setCurrentGuess((prev) => prev.slice(0, -1));
+        return;
+      }
+
+      if (currentGuess.length >= 5 || !/^[a-zA-Z]$/.test(event.key)) return;
+
+      setCurrentGuess((prev) => prev + event.key.toLocaleLowerCase());
+
       return;
-    }
-
-    if (event.key === "Backspace") {
-      setCurrentGuess((prev) => prev.slice(0, -1));
-      return;
-    }
-
-    if (currentGuess.length >= 5 || !/^[a-zA-Z]$/.test(event.key)) return;
-
-    setCurrentGuess((prev) => prev + event.key.toLocaleLowerCase());
-
-    return;
-  };
+    },
+    [guesses, solution, currentGuess]
+  );
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [currentGuess, guesses]);
+  }, [handleKeyDown]);
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-900 text-white">
@@ -78,7 +87,7 @@ const Wordle = () => {
           return (
             <Boxes
               key={index}
-              guess={isCurrentGuess ? currentGuess : guess}
+              guess={isCurrentGuess ? currentGuess.padEnd(5, " ") : guess || ""}
               solution={solution}
               isFinal={!isCurrentGuess && guess !== null}
             />
