@@ -16,10 +16,11 @@ const Box: React.FC<BoxProps> = ({ guess, solution, i, isFinal }) => {
       className={
         `w-10 h-10 border border-gray-100 m-1 text-2xl font-bold flex items-center justify-center` +
         (isCorrect ? " bg-green-400 text-white" : "") +
-        (isWrongPosition ? " bg-yellow-400 text-white" : "")
+        (isWrongPosition ? " bg-yellow-400 text-white" : "") +
+        (isFinal ? " bg-gray-700 text-white" : "")
       }
     >
-      {guess ? guess[i] : ""}
+      {guess[i] ? guess[i].toUpperCase() : ""}
     </div>
   );
 };

@@ -116,7 +116,7 @@ export const PROJECTS: Project[] = [
     id: 6,
     title: "Wordle Game",
     description: "A clone of the popular word guessing game Wordle.",
-    image: "/wordle.png",
+    image: "",
     tags: ["React", "TypeScript", "Tailwind"],
     liveUrl: "/wordle"
   }

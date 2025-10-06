@@ -14,12 +14,18 @@ export default function Projects() {
             className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm backdrop-blur-sm transition hover:shadow-2xl hover:bg-white/10"
           >
             <div className="relative aspect-video overflow-hidden">
-              <Image
-                src={p.image}
-                alt=""
-                fill
-                className="object-contain p-6 transition group-hover:scale-105"
-              />
+              {p.image ? (
+                <Image
+                  src={p.image}
+                  alt=""
+                  fill
+                  className="object-contain p-6 transition group-hover:scale-105"
+                />
+              ) : (
+                <div className="flex items-center justify-center h-full">
+                  <div className="font-bold text-4xl">{p.title}</div>
+                </div>
+              )}
               <div className="pointer-events-none absolute inset-0 rounded-2xl" />
             </div>
             <div className="p-4">

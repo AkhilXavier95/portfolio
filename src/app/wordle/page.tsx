@@ -3,19 +3,30 @@
 import Boxes from "@/components/Boxes";
 import React, { useEffect } from "react";
 
-const SOLUTION = "REACT";
-
 const Wordle = () => {
+  const [solution, setSolution] = React.useState<string>("");
   const [guesses, setGuesses] = React.useState<string[]>(Array(6).fill(null));
   const [currentGuess, setCurrentGuess] = React.useState<string>("");
   const [isGameOver, setIsGameOver] = React.useState<boolean>(false);
+  const getWord = async () => {
+    const res = await fetch(
+      "https://random-word-api.herokuapp.com/word?length=5"
+    );
+    const data = await res.json();
+    const wordIndex = Math.floor(Math.random() * data.length);
+    setSolution(data[wordIndex]);
+  };
+
+  useEffect(() => {
+    getWord();
+  }, []);
 
   const gameOver = () => {
     if (!isGameOver) setIsGameOver(true);
   };
 
   const handleKeyDown = (event: KeyboardEvent) => {
-    if (SOLUTION === guesses[guesses.findIndex((g) => g === null) - 1]) return;
+    if (solution === guesses[guesses.findIndex((g) => g === null) - 1]) return;
 
     if (event.key === "Enter") {
       setGuesses((prev) => {
@@ -28,7 +39,7 @@ const Wordle = () => {
       });
 
       if (
-        (currentGuess.length === 5 && currentGuess === SOLUTION) ||
+        (currentGuess.length === 5 && currentGuess === solution) ||
         guesses[5] !== null
       ) {
         gameOver();
@@ -44,7 +55,7 @@ const Wordle = () => {
     }
 
     if (currentGuess.length >= 5 || !/^[a-zA-Z]$/.test(event.key)) return;
-    setCurrentGuess((prev) => prev + event.key.toUpperCase());
+    setCurrentGuess((prev) => prev + event.key.toLocaleLowerCase());
     return;
   };
 
@@ -66,7 +77,7 @@ const Wordle = () => {
             <Boxes
               key={index}
               guess={isCurrentGuess ? currentGuess : guess}
-              solution={SOLUTION}
+              solution={solution}
               isFinal={!isCurrentGuess && guess !== null}
             />
           );
@@ -77,9 +88,9 @@ const Wordle = () => {
         style={{ animation: "fade-in 1s forwards" }}
       >
         {isGameOver &&
-          (guesses.includes(SOLUTION)
+          (guesses.includes(solution)
             ? "🎉 Congratulations! You guessed the word!"
-            : `😢 Game Over! The word was ${SOLUTION}.`)}
+            : `😢 Game Over! The word was ${solution}.`)}
       </div>
     </main>
   );
