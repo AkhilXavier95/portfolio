@@ -20,10 +20,17 @@ const Wordle = () => {
   useEffect(() => {
     getWord();
   }, []);
+  useEffect(() => {
+    if (isGameOver) return;
 
-  const gameOver = () => {
-    if (!isGameOver) setIsGameOver(true);
-  };
+    const maxGuessesReached = guesses.filter(Boolean).length === 6;
+    const guessedCorrectly =
+      currentGuess.length === 5 && currentGuess === solution;
+
+    if (guessedCorrectly || maxGuessesReached) {
+      setIsGameOver(true);
+    }
+  }, [guesses, currentGuess, solution, isGameOver]);
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (solution === guesses[guesses.findIndex((g) => g === null) - 1]) return;
@@ -38,13 +45,6 @@ const Wordle = () => {
         return nextGuesses;
       });
 
-      if (
-        (currentGuess.length === 5 && currentGuess === solution) ||
-        guesses[5] !== null
-      ) {
-        gameOver();
-      }
-
       setCurrentGuess("");
       return;
     }
@@ -55,7 +55,9 @@ const Wordle = () => {
     }
 
     if (currentGuess.length >= 5 || !/^[a-zA-Z]$/.test(event.key)) return;
+
     setCurrentGuess((prev) => prev + event.key.toLocaleLowerCase());
+
     return;
   };
 
