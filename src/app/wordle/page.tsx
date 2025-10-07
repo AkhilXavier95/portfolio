@@ -1,7 +1,8 @@
 "use client";
 
 import Boxes from "@/components/Boxes";
-import React, { useEffect } from "react";
+import Keyboard from "@/components/Keyboard";
+import React, { useEffect, useCallback } from "react";
 
 const Wordle = () => {
   const [solution, setSolution] = React.useState<string>("");
@@ -21,48 +22,52 @@ const Wordle = () => {
     getWord();
   }, []);
 
-  const gameOver = () => {
-    if (!isGameOver) setIsGameOver(true);
-  };
+  useEffect(() => {
+    if (isGameOver) return;
 
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (solution === guesses[guesses.findIndex((g) => g === null) - 1]) return;
+    if (guesses.includes(solution) || guesses.every((g) => g !== null)) {
+      setIsGameOver(true);
+    }
+  }, [guesses, solution]);
 
-    if (event.key === "Enter") {
-      setGuesses((prev) => {
-        const nextGuesses = [...prev];
-        const currentIndex = nextGuesses.findIndex((g) => g === null);
-        if (currentIndex !== -1 && currentGuess.length === 5) {
-          nextGuesses[currentIndex] = currentGuess;
-        }
-        return nextGuesses;
-      });
+  const handleKeyDown = useCallback(
+    (key: string) => {
+      const currentIndex = guesses.findIndex((g) => g === null);
+      if (currentIndex > 0 && solution === guesses[currentIndex - 1]) return;
 
-      if (
-        (currentGuess.length === 5 && currentGuess === solution) ||
-        guesses[5] !== null
-      ) {
-        gameOver();
+      if (key === "Enter") {
+        setGuesses((prev) => {
+          const nextGuesses = [...prev];
+          const currentIndex = nextGuesses.findIndex((g) => g === null);
+          if (currentIndex !== -1 && currentGuess.length === 5) {
+            nextGuesses[currentIndex] = currentGuess;
+          }
+          return nextGuesses;
+        });
+
+        setCurrentGuess("");
+        return;
       }
 
-      setCurrentGuess("");
-      return;
-    }
+      if (key === "Backspace") {
+        setCurrentGuess((prev) => prev.slice(0, -1));
+        return;
+      }
 
-    if (event.key === "Backspace") {
-      setCurrentGuess((prev) => prev.slice(0, -1));
-      return;
-    }
+      if (currentGuess.length >= 5 || !/^[a-zA-Z]$/.test(key)) return;
 
-    if (currentGuess.length >= 5 || !/^[a-zA-Z]$/.test(event.key)) return;
-    setCurrentGuess((prev) => prev + event.key.toLocaleLowerCase());
-    return;
-  };
+      setCurrentGuess((prev) => prev + key.toLocaleLowerCase());
+
+      return;
+    },
+    [currentGuess, guesses, solution]
+  );
 
   useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
+    const listener = (e: KeyboardEvent) => handleKeyDown(e.key);
+    window.addEventListener("keydown", listener);
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keydown", listener);
     };
   }, [currentGuess, guesses]);
 
@@ -92,6 +97,7 @@ const Wordle = () => {
             ? "🎉 Congratulations! You guessed the word!"
             : `😢 Game Over! The word was ${solution}.`)}
       </div>
+      <Keyboard handleKeyDown={handleKeyDown} />
     </main>
   );
 };
