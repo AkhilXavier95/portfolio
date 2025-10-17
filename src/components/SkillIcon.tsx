@@ -6,7 +6,7 @@ type Props = {
   className?: string;
 };
 
-export default function SkillIcon({ src, alt = "icon", className }: Props) {
+export default function SkillIcon({ src, alt = "icon" }: Props) {
   return (
     <Image
       src={src}
