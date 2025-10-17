@@ -119,6 +119,14 @@ export const PROJECTS: Project[] = [
     image: "",
     tags: ["React", "TypeScript", "Tailwind"],
     liveUrl: "/wordle"
+  },
+  {
+    id: 7,
+    title: "Tic Tac Toe",
+    description: "A clone of the popular game Tic Tac Toe.",
+    image: "",
+    tags: ["React", "TypeScript", "Tailwind"],
+    liveUrl: "/tictactoe"
   }
 ];
 
@@ -156,7 +164,7 @@ export const WORK: WorkItem[] = [
     skills: ["React", "TypeScript", "Tailwind", "Redux"]
   },
   {
-    company: " Cubet Techno Labs (Kochi, India)",
+    company: "Cubet Techno Labs (Kochi, India)",
     role: "Software Engineer",
     period: "Sep 2018 — Oct 2020",
     summary:
