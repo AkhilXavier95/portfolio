@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState, useCallback } from "react";
+import { useRouter } from "next/navigation";
 
 type NavItem = {
   id: string;
   label: string;
+  href?: string;
 };
 
 type NavBarProps = {
@@ -21,13 +23,19 @@ const getNavItems = (items?: NavItem[]): NavItem[] =>
   ];
 
 const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
+  const router = useRouter();
   const navItems = useMemo<NavItem[]>(() => getNavItems(items), [items]);
   const [activeId, setActiveId] = useState<string>(navItems[0]?.id ?? "");
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const scrollToSection = useCallback(
-    (id: string) => {
-      const element = document.getElementById(id);
+    (value: NavItem) => {
+      if (value.href) {
+        router.push(value.href);
+        return;
+      }
+
+      const element = document.getElementById(value.id);
       if (!element) return;
 
       const top =
@@ -37,10 +45,10 @@ const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
 
       if (history.pushState) {
         const url = new URL(window.location.href);
-        url.hash = id;
+        url.hash = value.id;
         history.pushState(null, "", url.toString());
       } else {
-        window.location.hash = id;
+        window.location.hash = value.id;
       }
     },
     [scrollOffset]
@@ -132,16 +140,16 @@ const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
                 return (
                   <li key={item.id}>
                     <a
-                      href={`#${item.id}`}
+                      href={item.href ? item.href : `#${item.id}`}
                       onClick={(e) => {
                         e.preventDefault();
-                        scrollToSection(item.id);
+                        scrollToSection(item);
                         setIsOpen(false);
                       }}
                       onKeyDown={(e) => {
                         if (e.key === "Enter" || e.key === " ") {
                           e.preventDefault();
-                          scrollToSection(item.id);
+                          scrollToSection(item);
                           setIsOpen(false);
                         }
                       }}
@@ -196,7 +204,7 @@ const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
                     href={`#${item.id}`}
                     onClick={(e) => {
                       e.preventDefault();
-                      scrollToSection(item.id);
+                      scrollToSection(item);
                       setIsOpen(false);
                     }}
                     className={`block rounded-xl px-3 py-2 text-sm font-medium transition-colors ${

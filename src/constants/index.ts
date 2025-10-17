@@ -3,11 +3,20 @@ export type Social = {
   href: string;
 };
 
-export const NAV_ITEMS = [
+export const NAV_ITEMS_FOR_HOME = [
   { id: "home", label: "Home" },
   { id: "about", label: "About me" },
   { id: "skills", label: "Skills" },
-  { id: "projects", label: "My Work" }
+  { id: "projects", label: "My Work" },
+  { id: "blog", label: "My Blog", href: "/blog" }
+] as const;
+
+export const NAV_ITEMS = [
+  { id: "home", label: "Home", href: "/#home" },
+  { id: "about", label: "About me", href: "/#about" },
+  { id: "skills", label: "Skills", href: "/#skills" },
+  { id: "projects", label: "My Work", href: "/#projects" },
+  { id: "blog", label: "My Blog", href: "/blog" }
 ] as const;
 
 export const SOCIALS: Social[] = [
