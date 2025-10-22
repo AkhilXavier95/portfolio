@@ -1,3 +1,5 @@
+@import "highlight.js/styles/github-dark.css";
+
 .markdown-content {
   color: #374151;
   line-height: 1.75;
@@ -29,7 +31,7 @@
 }
 
 .markdown-content h4 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   margin-top: 1.5rem;
@@ -37,7 +39,7 @@
 }
 
 .markdown-content p {
-  font-size: 1.125rem;
+  font-size: 1.4rem;
   line-height: 1.75;
   margin-bottom: 1.5rem;
 }
@@ -58,7 +60,7 @@
 
 .markdown-content li {
   margin-bottom: 0.5rem;
-  font-size: 1.125rem;
+  font-size: 1.4rem;
   line-height: 1.75;
 }
 
@@ -215,7 +217,7 @@
   }
 
   .markdown-content h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .markdown-content p,

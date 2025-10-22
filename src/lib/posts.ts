@@ -4,6 +4,9 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 import { Post } from "@/types/post";
+import rehypeHighlight from "rehype-highlight";
+import rehypeStringify from "rehype-stringify";
+import remarkRehype from "remark-rehype";
 
 const postsDirectory = path.join(process.cwd(), "markdown");
 
@@ -26,7 +29,12 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     throw new Error(`Post ${realSlug} is missing required fields`);
   }
 
-  const processedContent = await remark().use(html).process(content);
+  const processedContent = await remark()
+    .use(html)
+    .use(remarkRehype)
+    .use(rehypeHighlight)
+    .use(rehypeStringify)
+    .process(content);
   const contentHtml = processedContent.toString();
 
   return {

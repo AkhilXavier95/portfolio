@@ -19,7 +19,7 @@ const BlogPost = async ({
     const post = await getPostBySlug(slug);
 
     return (
-      <article className="max-w-6xl mx-auto py-10 min-h-screen">
+      <article className="max-w-6xl mx-auto px-4 py-10 min-h-screen">
         <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
         <p className="text-gray-500 mb-6">{post.date}</p>
         <div
