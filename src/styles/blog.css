@@ -1,3 +1,5 @@
+@import "highlight.js/styles/github-dark.css";
+
 .markdown-content {
   color: #374151;
   line-height: 1.75;
