@@ -7,7 +7,7 @@ const BlogPage = async () => {
   const posts = await getAllPosts();
 
   return (
-    <main className="max-w-2xl mx-auto p-4 w-screen h-screen">
+    <main className="max-w-5xl mx-auto p-4 w-screen h-screen">
       <NavBar scrollOffset={80} items={[...NAV_ITEMS]} />
 
       <h1 className="text-3xl font-bold mb-6 mt-4">My Blog</h1>
