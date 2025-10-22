@@ -17,7 +17,7 @@ const [coffeeReady, setCoffeeReady] = useState(false);
 
 ## useEffect: The Brewing Process
 
-Watching your coffee brew is all about timing—letting the coffee dissolve and reach the perfect strength.
+Watching your coffee brew is all about timing, letting the coffee dissolve and reach the perfect strength.
 useEffect handles timing and side effects in your components, just like brewing coffee patiently.
 
 ```js
@@ -49,7 +49,7 @@ function CoffeeTimer() {
 
 ## Custom Hooks: Your Signature Recipe
 
-Custom hooks are like your personal coffee tweaks—how much sugar, milk, or froth you like.
+Custom hooks are like your personal coffee tweaks. How much sugar, milk, or froth you like.
 They make your routine reusable and consistent.
 
 ```js
@@ -96,4 +96,4 @@ function CoffeeProvider({ children }) {
 3. Adding milk/sugar → custom hooks (personal tweaks)
 4. Shared coffee jar → useContext (accessible everywhere)
 
-Even for simple home-made coffee, a little patience and the right routine make it perfect—just like writing clean, reusable React code. ☕
+Even for simple home made coffee, a little patience and the right routine make it perfect, just like writing clean, reusable React code. ☕
