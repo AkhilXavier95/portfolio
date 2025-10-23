@@ -3,6 +3,8 @@ title: "Why React Hooks Remind Me of My Filter Coffee Setup"
 date: "2025-10-22"
 description: "Coffee and React Hooks share the same beauty: simple elements transforming through careful process. Coffee powder + patience = perfect brew, just like basic functions + hooks = powerful applications."
 slug: "coffee-with-use-effect"
+category: "Development"
+tags: ["React", "Development", "Philosophy"]
 ---
 
 There’s something truly comforting about my morning ritual of making coffee at home. The sound of water boiling, the swirl of tea leaves and spices, the rich aroma slowly filling the kitchen. it’s a little moment of calm before the day begins. Funny enough, it reminds me of React Hooks both take something familiar and make it smoother, more intuitive, and a bit more magical every time

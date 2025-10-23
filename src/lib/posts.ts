@@ -42,6 +42,7 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     title: data.title as string,
     date: data.date as string,
     description: data.description as string,
+    tags: data.tags ? (data.tags as string[]) : [],
     contentHtml
   };
 };
