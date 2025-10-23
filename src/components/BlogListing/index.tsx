@@ -67,6 +67,7 @@ const BlogListing: React.FC<BlogListingProps> = ({ posts }) => {
         <div className="space-y-6">
           {filteredPosts.map((post, index) => (
             <List
+              key={post.slug}
               post={post}
               index={index}
               calculateReadTime={calculateReadTime}
