@@ -3,6 +3,8 @@ title: "Building My Blog: A Developer's Journey into Markdown Magic"
 date: "2025-10-18"
 description: "Join me as I share the story of how I built a fast, type-safe blog using Next.js and Markdown - and why I fell in love with this approach along the way."
 slug: "building-my-markdown-blog-journey"
+category: "Development"
+tags: ["Development", "Philosophy"]
 ---
 
 Hey there 👋
