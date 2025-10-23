@@ -1,7 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
-import { Calendar, Clock, Tag, ArrowRight } from "lucide-react";
 import { Post } from "@/types/post";
 import NavBar from "@/components/NavBar";
 import { NAV_ITEMS } from "@/constants";
@@ -37,7 +35,7 @@ const BlogListing: React.FC<BlogListingProps> = ({ posts }) => {
     return matchesCategory && matchesSearch;
   });
 
-  const categories = ["all", ...allTags.slice(0, 5)]; // Limit to 5 main categories
+  const categories = ["all", ...allTags.slice(0, 5)];
 
   return (
     <main className="min-h-screen bg-gradient-to-br">
