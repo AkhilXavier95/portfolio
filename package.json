@@ -9,7 +9,8 @@
     "predeploy": "yarn build && yarn export",
     "deploy": "touch out/.nojekyll && echo ${NEXT_PUBLIC_BASE_PATH:-/} > out/CNAME || true",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:ci": "vitest run --coverage"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
