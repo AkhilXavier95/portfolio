@@ -1,5 +1,5 @@
 ---
-title: "Why React Hooks Remind Me of My Filter Coffee Setup"
+title: "Why React Hooks Remind Me of My Morning Coffee"
 date: "2025-10-22"
 description: "Coffee and React Hooks share the same beauty: simple elements transforming through careful process. Coffee powder + patience = perfect brew, just like basic functions + hooks = powerful applications."
 slug: "coffee-with-use-effect"
@@ -7,20 +7,29 @@ category: "Development"
 tags: ["React", "Development", "Philosophy"]
 ---
 
-There’s something truly comforting about my morning ritual of making coffee at home. The sound of water boiling, the swirl of tea leaves and spices, the rich aroma slowly filling the kitchen. it’s a little moment of calm before the day begins. Funny enough, it reminds me of React Hooks both take something familiar and make it smoother, more intuitive, and a bit more magical every time
+There’s something incredibly grounding about my morning ritual, brewing a cup of coffee.
+The water boils, the aroma builds, and for a few quiet minutes, everything slows down. It’s a small pause before the chaos of the day begins.
+
+And weirdly enough, it always makes me think of React Hooks.
+Both take something simple and familiar. Through a bit of process and patience turn it into something smooth, intuitive, and kind of magical.
 
 ## useState: The Coffee Powder Base
 
-Making coffee starts with the basics coffee powder and hot water. useState is the same: it holds your local state, simple and essential.
+Every great cup starts with the basics — coffee powder and hot water.
+That’s your useState: simple, local, and essential.
 
 ```jsx
 const [coffeeReady, setCoffeeReady] = useState(false);
 ```
 
+It’s the foundation. Everything else builds on top of it.
+
 ## useEffect: The Brewing Process
 
-Watching your coffee brew is all about timing, letting the coffee dissolve and reach the perfect strength.
-useEffect handles timing and side effects in your components, just like brewing coffee patiently.
+Brewing coffee is all about timing.
+You can’t rush it. You watch it slowly darken, waiting for that perfect strength.
+
+That’s useEffect for me. It handles the timing and side effects, making sure everything reacts at just the right moment.
 
 ```js
 function CoffeeTimer() {
@@ -51,8 +60,10 @@ function CoffeeTimer() {
 
 ## Custom Hooks: Your Signature Recipe
 
-Custom hooks are like your personal coffee tweaks. How much sugar, milk, or froth you like.
-They make your routine reusable and consistent.
+Some people like their coffee strong.
+Some want it sweet, or extra frothy.
+
+That’s where custom hooks come in, your personal recipe that makes things just the way you like them.
 
 ```js
 function useCoffeeRecipe() {
@@ -71,7 +82,10 @@ function useCoffeeRecipe() {
 
 ## useContext: The Shared Coffee Station
 
-useContext is like a shared kitchen jar of coffee powder—everyone can access it when needed.
+Picture a shared kitchen jar of coffee powder.
+Everyone in the house knows where it is and can grab what they need.
+
+That’s useContext, a shared space for values everyone can access without passing props all around.
 
 ```js
 const CoffeeContext = createContext();
@@ -93,9 +107,10 @@ function CoffeeProvider({ children }) {
 
 ## Why Coffee = React Hooks
 
-1. Coffee powder + hot water → useState (basic setup)
+1. Coffee powder + hot water → useState (your base)
 2. Brewing time → useEffect (timing matters)
-3. Adding milk/sugar → custom hooks (personal tweaks)
-4. Shared coffee jar → useContext (accessible everywhere)
+3. Milk and sugar → custom hooks (your unique style)
+4. Shared jar → useContext (accessible everywhere)
 
-Even for simple home made coffee, a little patience and the right routine make it perfect, just like writing clean, reusable React code. ☕
+Even with something as simple as homemade coffee, a little patience and the right process make it perfect
+just like writing clean, reusable React code.
