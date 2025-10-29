@@ -207,14 +207,6 @@ export const PROJECTS: Project[] = [
     image: "",
     tags: ["React", "TypeScript", "Tailwind"],
     liveUrl: "/wordle"
-  },
-  {
-    id: 7,
-    title: "Tic Tac Toe",
-    description: "A clone of the popular game Tic Tac Toe.",
-    image: "",
-    tags: ["React", "TypeScript", "Tailwind"],
-    liveUrl: "/tictactoe"
   }
 ];
 
