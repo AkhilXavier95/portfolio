@@ -29,23 +29,27 @@ export default function Projects() {
               <div className="pointer-events-none absolute inset-0 rounded-2xl" />
             </div>
             <div className="p-4">
-              <h3 className="font-semibold text-slate-100">{p.title}</h3>
-              <p className="mt-1 text-sm text-slate-300">{p.description}</p>
+              <h3 className="text-base font-semibold text-slate-100">
+                {p.title}
+              </h3>
+              <p className="mt-1 text-base text-slate-300 leading-relaxed">
+                {p.description}
+              </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {p.tags.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full bg-white/10 px-2 py-1 text-xs text-slate-200"
+                    className="rounded-full bg-white/10 px-2 py-1 text-sm text-slate-300"
                   >
                     {t}
                   </span>
                 ))}
               </div>
-              <div className="mt-4 flex gap-4 text-sm">
+              <div className="mt-4 flex gap-4 text-base bottom-0">
                 {p.liveUrl && (
                   <a
                     href={p.liveUrl}
-                    className="text-slate-200 underline decoration-white/30 underline-offset-4 hover:text-white"
+                    className="text-slate-300 underline decoration-white/30 underline-offset-4 hover:text-white"
                   >
                     Live
                   </a>
@@ -53,7 +57,7 @@ export default function Projects() {
                 {p.codeUrl && (
                   <a
                     href={p.codeUrl}
-                    className="text-slate-200 underline decoration-white/30 underline-offset-4 hover:text-white"
+                    className="text-slate-300 underline decoration-white/30 underline-offset-4 hover:text-white"
                   >
                     Code
                   </a>

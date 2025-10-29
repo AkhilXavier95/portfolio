@@ -34,112 +34,112 @@ export const EMAIL = "akhilxavier95@gmail.com";
 export const SKILLS = [
   {
     id: 1,
-    icon: "/javascript.svg",
+    icon: "/images/javascript.svg",
     name: "JavaScript",
     description:
       "Experienced in building dynamic web applications using JavaScript, with a strong focus on ES6+ features and best practices."
   },
   {
     id: 2,
-    icon: "/types.svg",
+    icon: "/images/types.svg",
     name: "TypeScript",
     description:
       "Proficient in TypeScript, leveraging its static typing and advanced features to enhance code quality and maintainability in large-scale projects."
   },
   {
     id: 3,
-    icon: "/react.svg",
+    icon: "/images/react.svg",
     name: "React",
     description:
       "Skilled in React, creating responsive and user-friendly interfaces with a deep understanding of component-based architecture, hooks, and state management."
   },
   {
     id: 4,
-    icon: "/nextjs.svg",
+    icon: "/images/nextjs.svg",
     name: "Next.js",
     description:
       "Experienced in Next.js, building high-performance web applications with a focus on SEO, user experience, and seamless integration with APIs and modern front-end tools."
   },
   {
     id: 6,
-    icon: "/tailwind.svg",
+    icon: "/images/tailwind.svg",
     name: "Tailwind CSS",
     description:
       "Proficient in Tailwind CSS, utilizing its utility-first approach to rapidly design and implement responsive, modern web interfaces with a strong emphasis on consistency and scalability."
   },
   {
     id: 5,
-    icon: "/react-query.svg",
+    icon: "/images/react-query.svg",
     name: "React Query",
     description:
       "Experienced in React Query for efficient data fetching, caching, and synchronization in React applications, enhancing performance and user experience."
   },
   {
     id: 7,
-    icon: "/redux.svg",
+    icon: "/images/redux.svg",
     name: "Redux",
     description:
       "Skilled in Redux for managing complex application state in React applications, ensuring predictable state transitions and maintainable code architecture."
   },
   {
     id: 8,
-    icon: "/git.svg",
+    icon: "/images/git.svg",
     name: "Git",
     description:
       "Proficient in Git for version control, enabling efficient collaboration and code management in team environments."
   },
   {
     id: 9,
-    icon: "/git-hub.svg",
+    icon: "/images/git-hub.svg",
     name: "GitHub",
     description:
       "Experienced in using GitHub for code hosting, collaboration, and continuous integration/continuous deployment (CI/CD) workflows."
   },
   {
     id: 11,
-    icon: "/docker.svg",
+    icon: "/images/docker.svg",
     name: "Docker",
     description:
       "Knowledgeable in Docker for containerizing applications, facilitating consistent development, testing, and deployment across various environments."
   },
   {
     id: 16,
-    icon: "/html.svg",
+    icon: "/images/html.svg",
     name: "HTML5",
     description:
       "Proficient in HTML5 for structuring web content, ensuring semantic markup and accessibility best practices."
   },
   {
     id: 17,
-    icon: "/css3.svg",
+    icon: "/images/css3.svg",
     name: "CSS3",
     description:
       "Skilled in CSS3 for styling web applications, creating visually appealing and responsive designs using modern techniques and frameworks."
   },
   {
     id: 19,
-    icon: "/webpack.svg",
+    icon: "/images/webpack.svg",
     name: "Webpack",
     description:
       "Proficient in Webpack for module bundling and build optimization, enhancing application performance and development workflows."
   },
   {
     id: 20,
-    icon: "/jest.svg",
+    icon: "/images/jest.svg",
     name: "Jest",
     description:
       "Skilled in Jest for unit and integration testing of JavaScript applications, ensuring code reliability and maintainability through comprehensive test coverage."
   },
   {
     id: 24,
-    icon: "/pwa.svg",
+    icon: "/images/pwa.svg",
     name: "Progressive Web Apps (PWA)",
     description:
       "Experienced in building Progressive Web Apps (PWAs) that deliver native app-like experiences on the web, enhancing performance, offline capabilities, and user engagement."
   },
   {
     id: 25,
-    icon: "/socket-io.svg",
+    icon: "/images/socket-io.svg",
     name: "Socket.io",
     description:
       "Proficient in Socket.io for real-time communication in web applications, enabling features like live chat and instant updates with low latency."
@@ -161,7 +161,7 @@ export const PROJECTS: Project[] = [
     id: 1,
     title: "Neeto",
     description: "Affordable Alternatives to Popular SaaS Products.",
-    image: "/neetoui.svg",
+    image: "/images/neetoui.svg",
     tags: ["React.js", "JavaScript", "TypeScript", "React Query", "Tailwind"],
     liveUrl: "https://neeto.com/"
   },
@@ -170,7 +170,7 @@ export const PROJECTS: Project[] = [
     title: "Boundri",
     description:
       "A web app showcasing 30+ years of mapping and satellite imagery expertise. Built with a focus on agricultural solutions, it provides users with interactive maps and unique technical tools for the Ag industry.",
-    image: "/boundri.svg",
+    image: "/images/boundri.svg",
     tags: ["React", "Tailwind", "fabric js", "Mapbox", "JavaScript"],
     liveUrl: "https://boundri.com/"
   },
@@ -179,7 +179,7 @@ export const PROJECTS: Project[] = [
     title: "Biblingo",
     description:
       "Biblingo is the only language learning app that provides everything you need to go from zero knowledge of Greek and Hebrew to reading the Bible in its original languages – all in one place.",
-    image: "/biblingo.png",
+    image: "/images/biblingo.png",
     tags: ["React", "Redux", "JavaScript"],
     liveUrl: "https://biblingo.com/"
   },
@@ -187,7 +187,7 @@ export const PROJECTS: Project[] = [
     id: 4,
     title: "Odin",
     description: "An ed-tech solution for rural students.",
-    image: "/odin.svg",
+    image: "/images/odin.svg",
     tags: ["React", "Redux", "JavaScript", "PWA"],
     liveUrl: "https://odineducation.org/"
   },
@@ -196,7 +196,7 @@ export const PROJECTS: Project[] = [
     title: "Total Parts Plus",
     description:
       "Total Parts Plus specializes in environmental compliance and obsolescence management solutions in the form of data content, web-based solutions and hosted services",
-    image: "/totalpartsplus.jpg",
+    image: "/images/totalpartsplus.jpg",
     tags: ["React", "Redux", "JavaScript", "PWA"],
     liveUrl: "https://www.totalpartsplus.com/px/login.asp/"
   },
@@ -207,14 +207,6 @@ export const PROJECTS: Project[] = [
     image: "",
     tags: ["React", "TypeScript", "Tailwind"],
     liveUrl: "/wordle"
-  },
-  {
-    id: 7,
-    title: "Tic Tac Toe",
-    description: "A clone of the popular game Tic Tac Toe.",
-    image: "",
-    tags: ["React", "TypeScript", "Tailwind"],
-    liveUrl: "/tictactoe"
   }
 ];
 
