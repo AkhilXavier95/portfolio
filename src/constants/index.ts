@@ -1,3 +1,5 @@
+import { i } from "motion/react-client";
+
 export type Social = {
   name: "LinkedIn" | "GitHub" | "Instagram";
   href: string;
@@ -56,7 +58,7 @@ export const SKILLS = [
     icon: "/nextjs.svg",
     name: "Next.js",
     description:
-      "Experienced in React Native, building cross-platform mobile applications with a focus on performance, user experience, and seamless integration with native modules."
+      "Experienced in Next.js, building high-performance web applications with a focus on SEO, user experience, and seamless integration with APIs and modern front-end tools."
   },
   {
     id: 6,
@@ -64,6 +66,83 @@ export const SKILLS = [
     name: "Tailwind CSS",
     description:
       "Proficient in Tailwind CSS, utilizing its utility-first approach to rapidly design and implement responsive, modern web interfaces with a strong emphasis on consistency and scalability."
+  },
+  {
+    id: 5,
+    icon: "/react-query.svg",
+    name: "React Query",
+    description:
+      "Experienced in React Query for efficient data fetching, caching, and synchronization in React applications, enhancing performance and user experience."
+  },
+  {
+    id: 7,
+    icon: "/redux.svg",
+    name: "Redux",
+    description:
+      "Skilled in Redux for managing complex application state in React applications, ensuring predictable state transitions and maintainable code architecture."
+  },
+  {
+    id: 8,
+    icon: "/git.svg",
+    name: "Git",
+    description:
+      "Proficient in Git for version control, enabling efficient collaboration and code management in team environments."
+  },
+  {
+    id: 9,
+    icon: "/git-hub.svg",
+    name: "GitHub",
+    description:
+      "Experienced in using GitHub for code hosting, collaboration, and continuous integration/continuous deployment (CI/CD) workflows."
+  },
+  {
+    id: 11,
+    icon: "/docker.svg",
+    name: "Docker",
+    description:
+      "Knowledgeable in Docker for containerizing applications, facilitating consistent development, testing, and deployment across various environments."
+  },
+  {
+    id: 16,
+    icon: "/html.svg",
+    name: "HTML5",
+    description:
+      "Proficient in HTML5 for structuring web content, ensuring semantic markup and accessibility best practices."
+  },
+  {
+    id: 17,
+    icon: "/css3.svg",
+    name: "CSS3",
+    description:
+      "Skilled in CSS3 for styling web applications, creating visually appealing and responsive designs using modern techniques and frameworks."
+  },
+  {
+    id: 19,
+    icon: "/webpack.svg",
+    name: "Webpack",
+    description:
+      "Proficient in Webpack for module bundling and build optimization, enhancing application performance and development workflows."
+  },
+  {
+    id: 20,
+    icon: "/jest.svg",
+    name: "Jest",
+    description:
+      "Skilled in Jest for unit and integration testing of JavaScript applications, ensuring code reliability and maintainability through comprehensive test coverage."
+  },
+  {
+    id: 24,
+    icon: "/pwa.svg",
+    name: "Progressive Web Apps (PWA)",
+    description:
+      "Experienced in building Progressive Web Apps (PWAs) that deliver native app-like experiences on the web, enhancing performance, offline capabilities, and user engagement."
+  },
+  {
+    id: 25,
+    icon: "/socket-io.svg",
+    name: "Socket.io",
+    description:
+      "Proficient in Socket.io for real-time communication in web applications, enabling features like live chat and instant updates with low latency."
   }
 ];
 
