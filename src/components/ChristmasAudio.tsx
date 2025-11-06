@@ -6,6 +6,12 @@ export default function ChristmasAudio() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const isMutedRef = useRef(isMuted);
+
+  // Keep ref in sync with state
+  useEffect(() => {
+    isMutedRef.current = isMuted;
+  }, [isMuted]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -14,7 +20,8 @@ export default function ChristmasAudio() {
     // Attempt to play on mount
     const attemptPlay = async () => {
       try {
-        audio.muted = isMuted; // Sync muted state
+        // Use ref to always get the latest muted state
+        audio.muted = isMutedRef.current; // Sync muted state
         audio.volume = 0.7; // Set volume
         const playPromise = audio.play();
 
@@ -60,6 +67,8 @@ export default function ChristmasAudio() {
     // Fallback: Auto-play when user interacts (for browsers that block autoplay)
     const handleUserInteraction = () => {
       if (audio.paused) {
+        // Sync muted state before playing
+        audio.muted = isMutedRef.current;
         audio
           .play()
           .then(() => setIsPlaying(true))
@@ -135,10 +144,10 @@ export default function ChristmasAudio() {
       </audio>
 
       {/* Audio controls - fixed bottom right */}
-      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full border border-white/20 bg-black/60 px-4 py-2 backdrop-blur-md">
+      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full border-2 border-gray-800 bg-white px-4 py-2 shadow-2xl">
         <button
           onClick={togglePlay}
-          className="rounded-full p-2 text-white hover:bg-white/10 transition-colors"
+          className="rounded-full p-2 text-black hover:bg-gray-200 transition-colors"
           aria-label={isPlaying ? "Pause" : "Play"}
         >
           {isPlaying ? (
@@ -153,7 +162,7 @@ export default function ChristmasAudio() {
         </button>
         <button
           onClick={toggleMute}
-          className="rounded-full p-2 text-white hover:bg-white/10 transition-colors"
+          className="rounded-full p-2 text-black hover:bg-gray-200 transition-colors"
           aria-label={isMuted ? "Unmute" : "Mute"}
         >
           {isMuted ? (
