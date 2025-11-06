@@ -22,7 +22,7 @@ export default function ChristmasAudio() {
           await playPromise;
           setIsPlaying(true);
         }
-      } catch (error) {
+      } catch {
         // Auto-play blocked by browser, will need user interaction
         console.log("Autoplay blocked, waiting for user interaction");
         setIsPlaying(false);
@@ -84,7 +84,7 @@ export default function ChristmasAudio() {
       document.removeEventListener("keydown", handleUserInteraction);
       document.removeEventListener("touchstart", handleUserInteraction);
     };
-  }, []);
+  }, [isMuted]);
 
   const togglePlay = () => {
     const audio = audioRef.current;

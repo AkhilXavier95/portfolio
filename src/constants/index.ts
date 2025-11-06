@@ -1,5 +1,3 @@
-import { i } from "motion/react-client";
-
 export type Social = {
   name: "LinkedIn" | "GitHub" | "Instagram";
   href: string;

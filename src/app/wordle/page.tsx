@@ -32,7 +32,7 @@ const Wordle = () => {
     if (guesses.includes(solution) || guesses.every((g) => g !== null)) {
       setIsGameOver(true);
     }
-  }, [guesses, solution]);
+  }, [guesses, solution, isGameOver]);
 
   const handleKeyDown = useCallback(
     (key: string) => {
@@ -79,7 +79,7 @@ const Wordle = () => {
     return () => {
       window.removeEventListener("keydown", listener);
     };
-  }, [currentGuess, guesses]);
+  }, [currentGuess, guesses, handleKeyDown]);
 
   const triggerErrorAnimation = () => {
     setShowError(true);
