@@ -106,7 +106,7 @@ export default function ChristmasAudio() {
         // Auto-play blocked
       });
     }
-    setIsPlaying(!isPlaying);
+    // State will be updated by onPlay/onPause handlers on the audio element
   };
 
   const toggleMute = () => {
