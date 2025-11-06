@@ -25,9 +25,12 @@ export default function Skills() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-2xl font-semibold text-transparent"
+        className="flex items-center gap-2 text-2xl font-semibold"
       >
-        Skills
+        <span className="text-xl">🎁</span>
+        <span className="bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-transparent">
+          Skills
+        </span>
       </motion.h2>
 
       <div className="mt-6 space-y-6">

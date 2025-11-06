@@ -3,8 +3,11 @@ import { WORK } from "@/constants";
 export default function Work() {
   return (
     <section id="work" className="mx-auto max-w-5xl px-6 py-16">
-      <h2 className="bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-2xl font-semibold text-transparent">
-        Experience
+      <h2 className="flex items-center gap-2 text-2xl font-semibold">
+        <span className="text-xl">🎅</span>
+        <span className="bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-transparent">
+          Experience
+        </span>
       </h2>
       <ol className="relative mt-8 border-s-2 border-white/10">
         {WORK.map((w) => (

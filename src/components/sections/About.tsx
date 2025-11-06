@@ -1,8 +1,11 @@
 export default function About() {
   return (
     <section id="about" className="mx-auto max-w-5xl px-6 py-16">
-      <h2 className="bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-2xl font-semibold text-transparent">
-        About me
+      <h2 className="flex items-center gap-2 text-2xl font-semibold">
+        <span className="text-xl">🎄</span>
+        <span className="bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-transparent">
+          About me
+        </span>
       </h2>
       <div className="mt-3 text-base text-slate-300 max-w-3xl leading-relaxed space-y-6">
         <p>

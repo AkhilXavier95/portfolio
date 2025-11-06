@@ -4,14 +4,17 @@ import { PROJECTS } from "@/constants";
 export default function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-5xl px-6 py-16">
-      <h2 className="bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-2xl font-semibold text-transparent">
-        My Work
+      <h2 className="flex items-center gap-2 text-2xl font-semibold">
+        <span className="text-xl">✨</span>
+        <span className="bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-transparent">
+          My Work
+        </span>
       </h2>
       <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {PROJECTS.map((p) => (
           <article
             key={p.id}
-            className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm backdrop-blur-sm transition hover:shadow-2xl hover:bg-white/10"
+            className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm backdrop-blur-sm transition hover:shadow-2xl hover:bg-white/10 hover:border-red-500/30"
           >
             <div className="relative aspect-video overflow-hidden">
               {p.image ? (
