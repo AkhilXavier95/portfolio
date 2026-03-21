@@ -8,8 +8,8 @@ export default function Hero() {
       <div className="grid items-center gap-8 md:grid-cols-[220px_1fr]">
         <div className="mx-auto h-40 w-40 overflow-hidden rounded-full ring-2 ring-black/10 md:h-56 md:w-56">
           <Image
-            src="/images/next.svg"
-            alt="Your photo"
+            src="/images/akhil.svg"
+            alt="Akhil Xavier"
             width={224}
             height={224}
             className="h-full w-full object-cover"
@@ -21,8 +21,9 @@ export default function Hero() {
             Hi, I’m Akhil Xavier
           </h1>
           <p className="mt-3 max-w-prose text-slate-300 text-lg md:text-xl font-medium">
-            I turn complex problems into simple, beautiful web applications
-            using React and modern frontend technologies.
+            Senior full stack engineer with 6+ years shipping production React
+            and TypeScript—from design systems and Next.js 13+ apps to
+            geospatial e-commerce and Wix-backed dealership experiences.
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-3 text-sm">
             {SOCIALS.map((s) => (

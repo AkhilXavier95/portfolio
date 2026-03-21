@@ -1,5 +1,3 @@
-import { i } from "motion/react-client";
-
 export type Social = {
   name: "LinkedIn" | "GitHub" | "Instagram";
   href: string;
@@ -9,6 +7,7 @@ export const NAV_ITEMS_FOR_HOME = [
   { id: "home", label: "Home" },
   { id: "about", label: "About me" },
   { id: "skills", label: "Skills" },
+  { id: "work", label: "Experience" },
   { id: "projects", label: "My Work" },
   { id: "blog", label: "My Blog", href: "/blog" }
 ] as const;
@@ -17,6 +16,7 @@ export const NAV_ITEMS = [
   { id: "home", label: "Home", href: "/#home" },
   { id: "about", label: "About me", href: "/#about" },
   { id: "skills", label: "Skills", href: "/#skills" },
+  { id: "work", label: "Experience", href: "/#work" },
   { id: "projects", label: "My Work", href: "/#projects" },
   { id: "blog", label: "My Blog", href: "/blog" }
 ] as const;
@@ -29,7 +29,7 @@ export const SOCIALS: Social[] = [
   { name: "GitHub", href: "https://github.com/AkhilXavier95/" }
 ];
 
-export const EMAIL = "akhilxavier95@gmail.com";
+export const EMAIL = "akhilxavierdev@gmail.com";
 
 export const SKILLS = [
   {
@@ -159,20 +159,21 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "Neeto",
-    description: "Affordable Alternatives to Popular SaaS Products.",
+    title: "NeetoUI",
+    description:
+      "React and TypeScript component library built at BigBinary, adopted across 5+ internal products. Design-system-first architecture with full Storybook documentation.",
     image: "/images/neetoui.svg",
-    tags: ["React.js", "JavaScript", "TypeScript", "React Query", "Tailwind"],
+    tags: ["React", "TypeScript", "Tailwind", "Storybook"],
     liveUrl: "https://neeto.com/"
   },
   {
     id: 2,
     title: "Boundri",
     description:
-      "A web app showcasing 30+ years of mapping and satellite imagery expertise. Built with a focus on agricultural solutions, it provides users with interactive maps and unique technical tools for the Ag industry.",
+      "Geospatial e-commerce platform: map-based product customization, SSR, Mapbox GL JS, Shapefile and GeoJSON processing, and Printify sync.",
     image: "/images/boundri.svg",
-    tags: ["React", "Tailwind", "fabric js", "Mapbox", "JavaScript"],
-    liveUrl: "https://boundri.com/"
+    tags: ["Next.js", "React", "Mapbox", "Rails", "Printify"],
+    codeUrl: "https://github.com/akhilxavier/boundri"
   },
   {
     id: 3,
@@ -195,7 +196,7 @@ export const PROJECTS: Project[] = [
     id: 5,
     title: "Total Parts Plus",
     description:
-      "Total Parts Plus specializes in environmental compliance and obsolescence management solutions in the form of data content, web-based solutions and hosted services",
+      "Feature-rich data table UI with drag-and-drop column reordering, inline cell editing, and virtualized rendering for large datasets.",
     image: "/images/totalpartsplus.jpg",
     tags: ["React", "Redux", "JavaScript", "PWA"],
     liveUrl: "https://www.totalpartsplus.com/px/login.asp/"
@@ -207,6 +208,15 @@ export const PROJECTS: Project[] = [
     image: "",
     tags: ["React", "TypeScript", "Tailwind"],
     liveUrl: "/wordle"
+  },
+  {
+    id: 7,
+    title: "Typed-React-Boilerplate",
+    description:
+      "Production-ready React, Redux, and TypeScript starter with Plop.js scaffolding and Immer for immutable state.",
+    image: "/images/types.svg",
+    tags: ["React", "Redux", "TypeScript", "Plop.js", "Immer"],
+    codeUrl: "https://github.com/akhilxavier/typed-react-boilerplate"
   }
 ];
 
@@ -220,35 +230,67 @@ export type WorkItem = {
 
 export const WORK: WorkItem[] = [
   {
-    company: "Black Hammer (Remote, US)",
+    company: "Carland 360 (Independent Consultant, Kochi)",
+    role: "Full Stack Developer",
+    period: "Nov 2025 — Present",
+    summary:
+      "Designed and built a full car dealership site on Wix with vehicle listings, inquiry flows, and a customer-facing 360° showcase. Integrated Razorpay for booking deposits and service payments with webhook-driven order status. Used Wix CMS Collections so the sales team can manage inventory and bookings without developer handoffs.",
+    skills: ["Wix", "Razorpay", "JavaScript", "CMS Collections"]
+  },
+  {
+    company: "The Baking Project (Independent Consultant, Kochi)",
     role: "Software Engineer",
+    period: "Nov 2025 — Present",
+    summary:
+      "Migrated the app to Next.js 13+ App Router with React Server Components and Server Actions to shrink the client bundle and speed up first paint. Applied a hybrid rendering model—SSG for marketing and static pages, SSR for dynamic content—to improve Core Web Vitals and SEO while keeping interactivity where it matters.",
+    skills: ["Next.js", "React", "TypeScript", "RSC"]
+  },
+  {
+    company: "Black Hammer (Independent Consultant, Remote — US)",
+    role: "Senior Software Engineer",
     period: "Jul 2024 — Present",
     summary:
-      "Developing a map-based custom e-commerce platform using React, Next.js, and Mapbox. Enhanced user experience and engagement by implementing interactive product mapping and seamless AWS integrations.",
-    skills: ["React", "TypeScript", "JavaScript", "AWS"]
+      "Built a full-stack geospatial e-commerce product from scratch: users draw map boundaries to generate regional products with live Mapbox GL JS tiles and Printify sync. Processed large GeoJSON, Shapefile, and KML datasets with GDAL and PROJ for accurate CRS work. Shipped secure multi-file uploads with Rails ActiveStorage and Sidekiq parsing, tightened frontend performance with memoization and lazy loading, and integrated Stripe and Printify for checkout and fulfillment.",
+    skills: [
+      "React",
+      "Next.js",
+      "Rails",
+      "Mapbox",
+      "PostgreSQL",
+      "Stripe",
+      "Printify"
+    ]
   },
   {
     company: "BigBinary (Kochi, India)",
     role: "Software Engineer",
-    period: "May 2021 — May 2024",
+    period: "May 2021 — Mar 2024",
     summary:
-      "Built and maintained multiple internal products using React, Tailwind CSS, and NeetoUI. Contributed to NeetoUI, a reusable design system adopted across teams, improving development speed and consistency.",
-    skills: ["React", "TypeScript", "Tailwind", "React Query"]
+      "Contributed to NeetoUI, a shared React component library adopted across Neeto products, standardizing UI patterns and delivery. Led a small team on neetoDesk and neetoInterview across features, reviews, and releases. Built product features with React and Tailwind on neetoForms and other internal SaaS tools, and helped deliver an HR system with React, GraphQL, and PostgreSQL—including employee records, leave management, and RBAC.",
+    skills: ["React", "TypeScript", "Tailwind", "GraphQL", "PostgreSQL"]
   },
   {
     company: "Fingent Global Solutions (Kochi, India)",
     role: "Software Engineer",
     period: "Nov 2020 — Apr 2021",
     summary:
-      "Built single-page applications (SPAs) using Redux and Redux-Saga for state management. Implemented PWA features, real-time chat modules with Socket.io and Quickblox, and persistent state handling for smoother user experience.",
-    skills: ["React", "TypeScript", "Tailwind", "Redux"]
+      "Built scalable EdTech SPAs with reusable components and strong accessibility (ARIA, semantic HTML). Improved performance through lazy loading and solid state management, and partnered with backend engineers on REST API design and integration.",
+    skills: ["React", "Rails", "REST", "Accessibility"]
   },
   {
     company: "Cubet Techno Labs (Kochi, India)",
     role: "Software Engineer",
     period: "Sep 2018 — Oct 2020",
     summary:
-      "Built single-page applications (SPAs) using Redux and Redux-Saga for state management. Implemented PWA features, real-time chat modules with Socket.io and Quickblox, and persistent state handling for smoother user experience.",
-    skills: ["React", "Redux", "JavaScript", "PWA"]
+      "Architected modular Redux and Redux-Saga stores for multi-feature SPAs across concurrent projects. Delivered PWA capabilities—offline support, service worker caching, and durable client state—for low-connectivity use. Built real-time chat with Socket.io and QuickBlox and cut unnecessary re-renders with memoized selectors and component memoization on busy views.",
+    skills: ["React", "Redux", "Redux-Saga", "Socket.io", "PWA"]
+  },
+  {
+    company: "Tranzmeo (Kochi, India)",
+    role: "Software Engineer",
+    period: "Mar 2018 — Aug 2018",
+    summary:
+      "Designed and built responsive UI for an online consultation platform with React and Ant Design, wired forms to backend APIs, and implemented validation with clear, dynamic user feedback.",
+    skills: ["React", "Ant Design", "REST"]
   }
 ];
