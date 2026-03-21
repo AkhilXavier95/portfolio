@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Akhil Xavier - Frontend Developer",
+  title: "Akhil Xavier - Senior Full Stack Engineer",
   description:
-    "Frontend Developer specializing in React. I build fast, responsive, and user-friendly web applications.",
+    "Senior full stack engineer (React, TypeScript, Next.js). NeetoUI contributor, geospatial e-commerce, and 6+ years shipping production web apps.",
   verification: {
     google: "7DM6-BkJzlL6fMrQStvoPqveUQ31mncVqeJEwhqujZI"
   }

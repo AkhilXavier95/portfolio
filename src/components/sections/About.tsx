@@ -6,20 +6,24 @@ export default function About() {
       </h2>
       <div className="mt-3 text-base text-slate-300 max-w-3xl leading-relaxed space-y-6">
         <p>
-          I&apos;m a frontend developer with a passion for crafting exceptional
-          digital experiences using React. I believe that great frontend work
-          sits at the intersection of design, technology, and user
-          needs—transforming ideas into intuitive and interactive realities.
+          I&apos;m a senior full stack engineer with 6+ years building
+          production-grade React and TypeScript across e-commerce, geospatial
+          mapping, EdTech, and automotive. I led development of NeetoUI, a
+          component library adopted across multiple product lines, and my recent
+          consulting work includes a US geospatial e-commerce platform, a
+          Next.js 13+ performance overhaul for an Indian startup, and a full
+          dealership site with Razorpay for Carland 360.
         </p>
         <p>
-          My day-to-day involves working with React, TypeScript, and tools like
-          Tailwind CSS to build scalable and maintainable component libraries. I
-          love tackling challenges related to UI/UX, re-render optimization, and
-          ensuring applications are both powerful and pleasant to use.
+          I care about performance, accessibility, and clear architecture—whether
+          that is RSC and Server Actions, map-heavy UIs with Mapbox, or CMS-driven
+          sites the business team can run day to day. I&apos;m looking for a
+          full-time senior or tech lead role on a remote-first, product-driven
+          team.
         </p>
         <p>
-          When I&apos;m not coding, you&apos;ll find me on the football field,
-          exploring new routes on my bicycle, or taking a break with my dogs.
+          Outside of work I enjoy cycling, travel, football, snooker, and home
+          brewing.
         </p>
       </div>
     </section>
