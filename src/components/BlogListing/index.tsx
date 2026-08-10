@@ -43,10 +43,10 @@ const BlogListing: React.FC<BlogListingProps> = ({ posts }) => {
 
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="mb-12 mt-4">
-          <h1 className="text-6xl py-1 font-bold mb-4 bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-            My Blog
+          <h1 className="font-display text-5xl py-1 font-bold mb-4 text-[var(--ink)] md:text-6xl">
+            Blog
           </h1>
-          <p className="text-slate-400 text-lg">
+          <p className="text-lg text-[var(--ink-muted)]">
             Thoughts on development, design, and the journey of building for the
             web
           </p>

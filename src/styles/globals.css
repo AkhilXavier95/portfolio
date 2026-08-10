@@ -1,44 +1,59 @@
 @import "tailwindcss";
 
+:root {
+  --bg: #f5f7fa;
+  --bg-muted: #e8ecf2;
+  --ink: #1a1f2e;
+  --ink-muted: #5b6475;
+  --accent: #0f766e;
+  --accent-hover: #0d9488;
+  --accent-soft: rgba(15, 118, 110, 0.12);
+  --border: #d5dbe5;
+  --surface: #ffffff;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-/* App background: dark theme gradient with subtle grid */
 body {
-  color: #e5e7eb;
-  background: radial-gradient(
-      1000px 500px at 80% -10%,
-      rgba(99, 102, 241, 0.18),
-      transparent 60%
+  color: var(--ink);
+  background:
+    radial-gradient(
+      900px 480px at 90% -5%,
+      rgba(15, 118, 110, 0.08),
+      transparent 55%
     ),
     radial-gradient(
-      900px 450px at 10% 0%,
-      rgba(236, 72, 153, 0.16),
-      transparent 60%
+      700px 400px at 0% 10%,
+      rgba(26, 31, 46, 0.04),
+      transparent 50%
     ),
-    linear-gradient(180deg, #0b1020 0%, #0a0f1e 40%, #0a0a0f 100%);
+    linear-gradient(180deg, var(--bg) 0%, #eef1f6 50%, var(--bg) 100%);
+  font-family: var(--font-body), "Source Sans 3", system-ui, sans-serif;
 }
 
-/* Optional subtle grid overlay for large screens */
-@media (min-width: 1024px) {
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image: linear-gradient(
-        rgba(255, 255, 255, 0.05) 1px,
-        transparent 1px
-      ),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(
-      circle at 50% 20%,
-      rgba(255, 255, 255, 0.5),
-      transparent 60%
-    );
+.font-display {
+  font-family: var(--font-display), Syne, system-ui, sans-serif;
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-rise {
+  animation: fade-rise 0.7s ease-out both;
+}
+
+.animate-fade-rise-delay {
+  animation: fade-rise 0.7s ease-out 0.12s both;
 }
 
 @keyframes fade-in {
@@ -51,6 +66,7 @@ body {
     transform: scale(1);
   }
 }
+
 .animate-fade-in {
   animation: fade-in 1s forwards;
 }

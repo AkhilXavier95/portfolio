@@ -1,55 +1,50 @@
-import Image from "next/image";
 import { PROJECTS } from "@/constants";
 
 export default function Projects() {
   return (
-    <section id="projects" className="mx-auto max-w-5xl px-6 py-16">
-      <h2 className="bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-2xl font-semibold text-transparent">
-        My Work
+    <section
+      id="projects"
+      className="mx-auto max-w-6xl border-t border-[var(--border)] px-6 py-20"
+    >
+      <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--ink)] md:text-4xl">
+        Selected work
       </h2>
-      <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {PROJECTS.map((p) => (
+      <p className="mt-3 max-w-2xl text-lg text-[var(--ink-muted)]">
+        Recent consulting and product work—outcomes first.
+      </p>
+      <div className="mt-12">
+        {PROJECTS.map((p, index) => (
           <article
             key={p.id}
-            className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm backdrop-blur-sm transition hover:shadow-2xl hover:bg-white/10"
+            className="grid gap-4 border-t border-[var(--border)] py-10 sm:grid-cols-[3rem_1fr] sm:gap-8"
           >
-            <div className="relative aspect-video overflow-hidden">
-              {p.image ? (
-                <Image
-                  src={p.image}
-                  alt=""
-                  fill
-                  className="object-contain p-6 transition group-hover:scale-105"
-                />
-              ) : (
-                <div className="flex items-center justify-center h-full">
-                  <div className="font-bold text-4xl">{p.title}</div>
-                </div>
-              )}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl" />
-            </div>
-            <div className="p-4">
-              <h3 className="text-base font-semibold text-slate-100">
+            <span
+              className="font-display text-sm font-semibold tabular-nums text-[var(--accent)]"
+              aria-hidden
+            >
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <h3 className="font-display text-xl font-semibold text-[var(--ink)] md:text-2xl">
                 {p.title}
               </h3>
-              <p className="mt-1 text-base text-slate-300 leading-relaxed">
+              <p className="mt-3 max-w-3xl text-base leading-relaxed text-[var(--ink-muted)] md:text-lg">
                 {p.description}
               </p>
-              <div className="mt-3 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm text-[var(--ink-muted)]">
                 {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full bg-white/10 px-2 py-1 text-sm text-slate-300"
-                  >
-                    {t}
-                  </span>
+                  <span key={t}>{t}</span>
                 ))}
               </div>
-              <div className="mt-4 flex gap-4 text-base bottom-0">
+              <div className="mt-5 flex flex-wrap gap-4 text-sm font-semibold">
                 {p.liveUrl && (
                   <a
                     href={p.liveUrl}
-                    className="text-slate-300 underline decoration-white/30 underline-offset-4 hover:text-white"
+                    target={p.liveUrl.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      p.liveUrl.startsWith("http") ? "noreferrer" : undefined
+                    }
+                    className="text-[var(--accent)] underline decoration-[var(--accent)]/30 underline-offset-4 transition hover:decoration-[var(--accent)]"
                   >
                     Live
                   </a>
@@ -57,7 +52,9 @@ export default function Projects() {
                 {p.codeUrl && (
                   <a
                     href={p.codeUrl}
-                    className="text-slate-300 underline decoration-white/30 underline-offset-4 hover:text-white"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[var(--accent)] underline decoration-[var(--accent)]/30 underline-offset-4 transition hover:decoration-[var(--accent)]"
                   >
                     Code
                   </a>

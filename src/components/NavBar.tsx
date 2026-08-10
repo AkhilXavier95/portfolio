@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import { CONTACT_MAILTO } from "@/constants";
 
 type NavItem = {
   id: string;
@@ -18,8 +19,8 @@ const getNavItems = (items?: NavItem[]): NavItem[] =>
   items ?? [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
-    { id: "projects", label: "Projects" },
-    { id: "contact", label: "Contact" }
+    { id: "projects", label: "Work" },
+    { id: "contact", label: "Contact" },
   ];
 
 const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
@@ -51,13 +52,12 @@ const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
         window.location.hash = value.id;
       }
     },
-    [scrollOffset]
+    [router, scrollOffset],
   );
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        // Find the section that is most visible
         let maxIntersectionRatio = 0;
         let mostVisibleId: string | null = null;
         for (const entry of entries) {
@@ -75,8 +75,8 @@ const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
       },
       {
         root: null,
-        threshold: [0.35, 0.5, 0.75, 1]
-      }
+        threshold: [0.35, 0.5, 0.75, 1],
+      },
     );
 
     const targets: Element[] = [];
@@ -95,84 +95,62 @@ const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
   }, [navItems]);
 
   return (
-    <nav aria-label="Primary" className="z-50 px-4 md:sticky md:top-4">
-      <div className="relative mx-auto flex w-full max-w-5xl items-center justify-between md:justify-center">
-        {/* Desktop capsule (border-only) */}
-        <div className="hidden md:flex items-center">
-          <div className="flex items-center gap-4 rounded-full border border-white/20 bg-transparent px-5 py-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.25),_0_8px_30px_rgba(0,0,0,0.35)]">
-            <div className="hidden select-none items-center gap-2 rounded-full bg-white/10 px-2 py-1 text-xs font-mono tracking-tight text-slate-200 md:flex">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-slate-200"
-              >
-                <path
-                  d="M8 7L3 12L8 17"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M16 7L21 12L16 17"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M13 5L11 19"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span>&lt;Dev /&gt;</span>
-            </div>
+    <nav
+      aria-label="Primary"
+      className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--bg)]/90 backdrop-blur-md"
+    >
+      <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+        <a
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection({ id: "home", label: "Home" });
+          }}
+          className="font-display text-base font-bold tracking-tight text-[var(--ink)] md:text-lg"
+        >
+          Akhil Xavier
+        </a>
 
-            <ul className="hidden md:flex list-none items-center gap-7">
-              {navItems.map((item) => {
-                const isActive = item.id === activeId;
-                return (
-                  <li key={item.id}>
-                    <a
-                      href={item.href ? item.href : `#${item.id}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollToSection(item);
-                        setIsOpen(false);
-                      }}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          e.preventDefault();
-                          scrollToSection(item);
-                          setIsOpen(false);
-                        }
-                      }}
-                      aria-current={isActive ? "page" : undefined}
-                      className="inline-block px-1 py-1.5 text-sm font-medium transition-colors text-slate-300 hover:text-white"
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
+        <ul className="hidden list-none items-center gap-6 md:flex">
+          {navItems.map((item) => {
+            const isActive = item.id === activeId;
+            return (
+              <li key={item.id}>
+                <a
+                  href={item.href ? item.href : `#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item);
+                    setIsOpen(false);
+                  }}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`inline-block py-1.5 text-sm font-medium transition-colors ${
+                    isActive
+                      ? "text-[var(--accent)]"
+                      : "text-[var(--ink-muted)] hover:text-[var(--ink)]"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
 
-        {/* Mobile hamburger (right corner) */}
+        <a
+          href={CONTACT_MAILTO}
+          className="hidden bg-[var(--accent)] px-3.5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--accent-hover)] md:inline-flex"
+        >
+          Let&apos;s talk
+        </a>
+
         <button
           type="button"
           aria-label="Toggle navigation menu"
           aria-expanded={isOpen}
           aria-controls="mobile-nav"
           onClick={() => setIsOpen((v) => !v)}
-          className="md:hidden ml-auto inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-200 hover:bg-white/10"
+          className="inline-flex h-10 w-10 items-center justify-center text-[var(--ink)] md:hidden"
         >
           <svg
             width="22"
@@ -190,27 +168,26 @@ const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
           </svg>
         </button>
 
-        {/* Mobile dropdown (top-right) */}
         {isOpen && (
           <ul
             id="mobile-nav"
-            className="absolute right-4 top-[calc(100%+8px)] z-50 w-[min(90vw,20rem)] rounded-2xl border border-white/15 bg-black/70 p-2 shadow-xl backdrop-blur-md md:hidden"
+            className="absolute right-4 top-[calc(100%+4px)] z-50 w-[min(90vw,18rem)] border border-[var(--border)] bg-[var(--surface)] p-2 shadow-lg md:hidden"
           >
             {navItems.map((item) => {
               const isActive = item.id === activeId;
               return (
                 <li key={item.id}>
                   <a
-                    href={`#${item.id}`}
+                    href={item.href ? item.href : `#${item.id}`}
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection(item);
                       setIsOpen(false);
                     }}
-                    className={`block rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
+                    className={`block px-3 py-2.5 text-sm font-medium transition-colors ${
                       isActive
-                        ? "text-white bg-white/10"
-                        : "text-slate-200 hover:text-white hover:bg-white/10"
+                        ? "bg-[var(--accent-soft)] text-[var(--accent)]"
+                        : "text-[var(--ink)] hover:bg-[var(--bg-muted)]"
                     }`}
                   >
                     {item.label}
@@ -218,10 +195,19 @@ const NavBar = ({ items, scrollOffset = 0 }: NavBarProps) => {
                 </li>
               );
             })}
+            <li className="border-t border-[var(--border)] pt-2">
+              <a
+                href={CONTACT_MAILTO}
+                className="block bg-[var(--accent)] px-3 py-2.5 text-center text-sm font-semibold text-white"
+              >
+                Let&apos;s talk
+              </a>
+            </li>
           </ul>
         )}
       </div>
     </nav>
   );
 };
+
 export default NavBar;
