@@ -1,18 +1,12 @@
-# Graph Report - portfolio  (2026-08-10)
+# Graph Report - .  (2026-08-10)
 
 ## Corpus Check
-- 43 files · ~16,573 words
-- Verdict: corpus is large enough that graph structure adds value.
+- Corpus is ~15,641 words - fits in a single context window. You may not need a graph.
 
 ## Summary
-- 383 nodes · 427 edges · 47 communities (43 shown, 4 thin omitted)
-- Extraction: 89% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.83)
+- 389 nodes · 434 edges · 49 communities (45 shown, 4 thin omitted)
+- Extraction: 88% EXTRACTED · 12% INFERRED · 0% AMBIGUOUS · INFERRED: 50 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
-
-## Graph Freshness
-- Built from commit: `59845700`
-- Run `git rev-parse HEAD` and compare to check if the graph is stale.
-- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Accessibility & SEO
@@ -23,10 +17,12 @@
 - Dev Tooling Stack
 - Markdown & Wix CMS
 - Wordle Mini-Game
+- Package Scripts
 - Text Contrast Demo
 - Tic-Tac-Toe Game
 - Boundri Brand Logo
 - Total Parts Plus
+- Akhil Portrait
 - Biblingo Brand
 - React Query Logo
 - ESLint Config
@@ -72,7 +68,7 @@
 7. `Web Accessibility` - 6 edges
 8. `getAllPosts()` - 5 edges
 9. `include` - 5 edges
-10. `Biblingo Wordmark` - 5 edges
+10. `Akhil Portrait` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Next.js` --semantically_similar_to--> `Next.js (Resume Skill)`  [INFERRED] [semantically similar]
@@ -93,6 +89,7 @@
 - **Accessibility and SEO Shared Practices** — markdown_accessibility_seo_guide_accessibility, markdown_accessibility_seo_guide_seo, markdown_accessibility_seo_guide_semantic_html, markdown_accessibility_seo_guide_alt_text, markdown_accessibility_seo_guide_aria [EXTRACTED 1.00]
 - **React Hooks Coffee Metaphor** — markdown_coffee_with_use_effect_usestate, markdown_coffee_with_use_effect_useeffect, markdown_coffee_with_use_effect_custom_hooks, markdown_coffee_with_use_effect_usecontext, markdown_coffee_with_use_effect_coffee_hooks_metaphor [EXTRACTED 1.00]
 - **Wix Hosted Front-End Stack** — markdown_wix_velo_cms_automation_website_velo, markdown_wix_velo_cms_automation_website_cms_collections, markdown_wix_velo_cms_automation_website_automations [EXTRACTED 1.00]
+- **Professional Portrait Composition** — public_images_akhil_akhil, public_images_akhil_black_backdrop, public_images_akhil_soft_frontal_lighting [INFERRED 0.85]
 - **Biblingo Wordmark Visual Identity** — public_images_biblingo_brand, public_images_biblingo_lowercase_sans_typography, public_images_biblingo_pale_bluish_white, public_images_biblingo_centered_wordmark_layout [INFERRED 0.85]
 - **Boundri Logo Lockup Composition** — public_images_boundri_lettermark, public_images_boundri_wordmark, public_images_boundri_accent_dot [EXTRACTED 1.00]
 - **Text Contrast Before/After Demonstration** — public_images_contrast_hard_to_read_panel, public_images_contrast_easy_to_read_panel, public_images_contrast_text_accessibility, public_images_contrast_side_by_side_comparison [EXTRACTED 1.00]
@@ -124,7 +121,7 @@
 - **Webpack Brand Identity Mark** — public_images_webpack_hexagonal_cube, public_images_webpack_light_blue_faces, public_images_webpack_dark_blue_core, public_images_webpack_webpack_logo [EXTRACTED 1.00]
 - **Window Icon Visual Composition** — public_images_window_window_icon, public_images_window_rectangular_frame, public_images_window_traffic_light_controls [EXTRACTED 1.00]
 
-## Communities (47 total, 4 thin omitted)
+## Communities (49 total, 4 thin omitted)
 
 ### Community 0 - "Accessibility & SEO"
 Cohesion: 0.07
@@ -147,8 +144,8 @@ Cohesion: 0.08
 Nodes (25): gray-matter, highlight.js, lucide-react, motion, next, dependencies, gray-matter, highlight.js (+17 more)
 
 ### Community 5 - "Dev Tooling Stack"
-Cohesion: 0.06
-Nodes (30): eslint, eslint-config-next, @eslint/eslintrc, devDependencies, eslint, eslint-config-next, @eslint/eslintrc, tailwindcss (+22 more)
+Cohesion: 0.11
+Nodes (19): eslint, eslint-config-next, @eslint/eslintrc, devDependencies, eslint, eslint-config-next, @eslint/eslintrc, tailwindcss (+11 more)
 
 ### Community 6 - "Markdown & Wix CMS"
 Cohesion: 0.14
@@ -157,6 +154,10 @@ Nodes (14): Build-Time Markdown Parsing, Markdown Frontmatter Metadata, Markdown
 ### Community 7 - "Wordle Mini-Game"
 Cohesion: 0.14
 Nodes (7): react, react, Wordle(), BoxProps, BoxesProps, KeyboardProps, keys
+
+### Community 8 - "Package Scripts"
+Cohesion: 0.17
+Nodes (11): name, private, scripts, build, deploy, dev, export, lint (+3 more)
 
 ### Community 9 - "Text Contrast Demo"
 Cohesion: 0.31
@@ -173,6 +174,10 @@ Nodes (7): Boundri Accent Dot, Boundri Brand Blue, Horizontal Logo Lockup, Bound
 ### Community 12 - "Total Parts Plus"
 Cohesion: 0.48
 Nodes (7): Diamond Dot Mark, Environmental Compliance, Lime Green Brand Accent, Obsolescence Management, Total Parts Plus, TPP, TPP Logo
+
+### Community 13 - "Akhil Portrait"
+Cohesion: 0.47
+Nodes (6): Akhil, Solid Black Backdrop, Dark Crew-Neck T-Shirt, Akhil Portrait, Professional Headshot, Soft Frontal Lighting
 
 ### Community 14 - "Biblingo Brand"
 Cohesion: 0.40
@@ -295,24 +300,24 @@ Cohesion: 1.00
 Nodes (3): Jest Brand Maroon (#99425B), Stylized J Face Motif, Jest Logo
 
 ## Knowledge Gaps
-- **140 isolated node(s):** `__filename`, `__dirname`, `compat`, `eslintConfig`, `nextConfig` (+135 more)
+- **142 isolated node(s):** `__filename`, `__dirname`, `compat`, `eslintConfig`, `nextConfig` (+137 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `dependencies` connect `App Dependencies` to `Dev Tooling Stack`, `Wordle Mini-Game`?**
+- **Why does `dependencies` connect `App Dependencies` to `Package Scripts`, `Wordle Mini-Game`?**
   _High betweenness centrality (0.024) - this node is a cross-community bridge._
+- **Why does `devDependencies` connect `Dev Tooling Stack` to `Package Scripts`?**
+  _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `Akhil Xavier` connect `Accessibility & SEO` to `Markdown & Wix CMS`?**
   _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **What connects `__filename`, `__dirname`, `compat` to the rest of the system?**
-  _140 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _142 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Accessibility & SEO` be split into smaller, more focused modules?**
   _Cohesion score 0.0659536541889483 - nodes in this community are weakly interconnected._
 - **Should `Portfolio Page Sections` be split into smaller, more focused modules?**
   _Cohesion score 0.0907258064516129 - nodes in this community are weakly interconnected._
 - **Should `TypeScript Config` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
-- **Should `Blog System` be split into smaller, more focused modules?**
-  _Cohesion score 0.12535612535612536 - nodes in this community are weakly interconnected._

@@ -140,9 +140,9 @@
     "semantic_hash": "3ee20eedbb81dd00e4188ea6ade22dbe"
   },
   "src/components/sections/Hero.tsx": {
-    "mtime": 1786385946.043511,
-    "ast_hash": "5f4de0648b4f5c25026084982b640cb7",
-    "semantic_hash": ""
+    "mtime": 1786384521.3609056,
+    "ast_hash": "626875aa27a0e80992e538c5a2d161e1",
+    "semantic_hash": "626875aa27a0e80992e538c5a2d161e1"
   },
   "src/components/sections/Projects.tsx": {
     "mtime": 1786384521.3610063,
@@ -223,6 +223,11 @@
     "mtime": 1786384521.3574994,
     "ast_hash": "1f3f7b35ea11e31c94fd1e3689711e1b",
     "semantic_hash": "1f3f7b35ea11e31c94fd1e3689711e1b"
+  },
+  "public/images/akhil.svg": {
+    "mtime": 1786384521.352959,
+    "ast_hash": "b3e4282e47020e072451e81ae9e763ed",
+    "semantic_hash": "b3e4282e47020e072451e81ae9e763ed"
   },
   "public/images/biblingo.png": {
     "mtime": 1786384521.353218,
@@ -373,10 +378,5 @@
     "mtime": 1786384521.357045,
     "ast_hash": "a2760511c65806022ad20adf74370ff3",
     "semantic_hash": "a2760511c65806022ad20adf74370ff3"
-  },
-  "public/images/akhil.webp": {
-    "mtime": 1786385955.1692252,
-    "ast_hash": "bf8e447d8fee21bc6b3bce05e96da240",
-    "semantic_hash": ""
   }
 }
