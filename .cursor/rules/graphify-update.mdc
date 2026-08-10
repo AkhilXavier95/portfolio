@@ -1,0 +1,17 @@
+---
+description: Refresh graphify after code edits
+globs: "**/*.{ts,tsx,js,jsx,mjs}"
+alwaysApply: false
+---
+
+# Graphify update
+
+After modifying matching code files in this session, run:
+
+```bash
+graphify update .
+```
+
+AST-only refresh — no API cost. Keeps `graphify-out/graph.json` aligned with the code.
+
+Doc or image-only changes are not covered by `graphify update .`. For those, run `/graphify --update` or a full `/graphify .` rebuild before treating the graph as current.
