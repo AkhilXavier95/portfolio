@@ -1,26 +1,29 @@
-import React from "react";
-import { Search } from "lucide-react";
+import React, { RefObject } from "react";
 
 interface SearchBlogProps {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+  inputRef?: RefObject<HTMLInputElement | null>;
 }
 
 const SearchBlog: React.FC<SearchBlogProps> = ({
   searchQuery,
   setSearchQuery,
+  inputRef,
 }) => {
   return (
-    <div className="relative w-full md:w-64">
-      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--ink-muted)]" />
+    <label className="term-panel flex w-full items-center gap-2 px-3 py-2 text-sm sm:w-72">
+      <span className="term-prompt shrink-0">&gt;</span>
       <input
+        ref={inputRef}
         type="text"
-        placeholder="Search posts..."
+        placeholder="search posts..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className="w-full border border-[var(--border)] bg-[var(--surface)] py-2 pl-10 pr-4 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
+        className="term-input"
+        aria-label="Search posts"
       />
-    </div>
+    </label>
   );
 };
 

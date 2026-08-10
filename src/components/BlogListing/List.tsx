@@ -1,5 +1,4 @@
 import { Post } from "@/types/post";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -10,55 +9,48 @@ interface ListProps {
 }
 
 const List: React.FC<ListProps> = ({ post, index, calculateReadTime }) => {
+  const date = new Date(post.date);
+  const iso = Number.isNaN(date.getTime())
+    ? post.date
+    : date.toISOString().slice(0, 10);
+
   return (
     <article
-      className="group border-t border-[var(--border)] py-8 first:border-t-0 first:pt-0"
+      className="term-row group"
       style={{
-        animation: `fadeIn 0.5s ease-out ${index * 0.08}s both`,
+        animation: `fadeIn 0.4s ease-out ${index * 0.05}s both`,
       }}
     >
-      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-        <div className="flex-1">
-          <div className="mb-3 flex items-center gap-3 text-xs text-[var(--ink-muted)]">
-            <span className="flex items-center gap-1">
-              <Calendar className="h-3 w-3" />
-              {new Date(post.date).toLocaleDateString("en-US", {
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </span>
-            <span className="flex items-center gap-1">
-              <Clock className="h-3 w-3" />
-              {calculateReadTime(post.contentHtml)}
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+        <div className="min-w-0 flex-1">
+          <div className="mb-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs term-muted">
+            <span className="text-[var(--term-amber)]">{iso}</span>
+            <span>{calculateReadTime(post.contentHtml)}</span>
+            <span className="truncate text-[var(--term-blue)]">
+              {post.slug}.md
             </span>
           </div>
-
           <Link href={`/blog/${post.slug}`}>
-            <h2 className="font-display mb-3 cursor-pointer text-2xl font-semibold text-[var(--ink)] transition-colors group-hover:text-[var(--accent)]">
+            <h2 className="text-lg font-semibold text-[var(--term-text)] transition-colors group-hover:text-[var(--term-green)] sm:text-xl">
               {post.title}
             </h2>
           </Link>
-
-          <p className="mb-4 leading-relaxed text-[var(--ink-muted)]">
+          <p className="mt-2 text-sm leading-relaxed term-muted">
             {post.description}
           </p>
-
           {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm text-[var(--ink-muted)]">
+            <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-[var(--term-green)]">
               {post.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
+                <span key={tag}>#{tag}</span>
               ))}
             </div>
           )}
         </div>
-
         <Link
           href={`/blog/${post.slug}`}
-          className="inline-flex items-center gap-2 self-start border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] md:self-center"
+          className="shrink-0 self-start text-sm text-[var(--term-green)] sm:self-center"
         >
-          Read more
-          <ArrowRight className="h-4 w-4" />
+          → open
         </Link>
       </div>
     </article>

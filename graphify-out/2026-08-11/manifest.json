@@ -20,14 +20,14 @@
     "semantic_hash": "675899342e765a4d16acd75a53389101"
   },
   "src/app/blog/[slug]/not-found.tsx": {
-    "mtime": 1786384521.357811,
-    "ast_hash": "1531fc1937085f2bca533981c4eee97f",
-    "semantic_hash": "1531fc1937085f2bca533981c4eee97f"
+    "mtime": 1786387571.8266797,
+    "ast_hash": "068934bd81c639ad84f239b32ad891e8",
+    "semantic_hash": ""
   },
   "src/app/blog/[slug]/page.tsx": {
-    "mtime": 1786384521.3580346,
-    "ast_hash": "2a3fda2c33beda00e12bbd82c7038c13",
-    "semantic_hash": "2a3fda2c33beda00e12bbd82c7038c13"
+    "mtime": 1786387571.8026297,
+    "ast_hash": "62a60f33d9a1bfb69550ffec07c5e56b",
+    "semantic_hash": ""
   },
   "src/app/blog/page.tsx": {
     "mtime": 1786384521.3581433,
@@ -55,28 +55,28 @@
     "semantic_hash": "11dbb8564b839d67f5c6446311a02cac"
   },
   "src/components/BlogListing/CategoryList.tsx": {
-    "mtime": 1786384521.3589208,
-    "ast_hash": "6c312023725130179bfe3c5d65139141",
-    "semantic_hash": "6c312023725130179bfe3c5d65139141"
+    "mtime": 1786387544.074138,
+    "ast_hash": "03b0f02a35d894109a95a096f3f5dd4c",
+    "semantic_hash": ""
   },
   "src/components/BlogListing/List.tsx": {
-    "mtime": 1786384521.3590305,
-    "ast_hash": "7d3b1d7ba829d91563ce81409a69cc04",
-    "semantic_hash": "7d3b1d7ba829d91563ce81409a69cc04"
+    "mtime": 1786387541.1478605,
+    "ast_hash": "cc2ef1213307d4dbb7fb82d1e6371f67",
+    "semantic_hash": ""
   },
   "src/components/BlogListing/NoPost.tsx": {
-    "mtime": 1786384521.359143,
-    "ast_hash": "3362d4776d506838a21ceda747aeab2a",
-    "semantic_hash": "3362d4776d506838a21ceda747aeab2a"
+    "mtime": 1786387545.2894034,
+    "ast_hash": "29b443335eb4046d488e28a544e6f85e",
+    "semantic_hash": ""
   },
   "src/components/BlogListing/Search.tsx": {
-    "mtime": 1786384521.359247,
-    "ast_hash": "ac3b30945815c28d345e2569c0dec9e8",
-    "semantic_hash": "ac3b30945815c28d345e2569c0dec9e8"
+    "mtime": 1786387545.0097547,
+    "ast_hash": "f6680e8dceae544bdae60df96b261b86",
+    "semantic_hash": ""
   },
   "src/components/BlogListing/index.tsx": {
-    "mtime": 1786386550.9943452,
-    "ast_hash": "a87bcc197c7b4c12c0d4789553217684",
+    "mtime": 1786387538.8300865,
+    "ast_hash": "c327d2011a3d40aec6f69fabdd83faf7",
     "semantic_hash": ""
   },
   "src/components/Box.tsx": {
@@ -130,8 +130,8 @@
     "semantic_hash": "e3fe465493811ffea1c05f29024036c8"
   },
   "src/components/sections/About.tsx": {
-    "mtime": 1786386551.0069616,
-    "ast_hash": "70704d2404d363be56204e1f015d482e",
+    "mtime": 1786387364.5777605,
+    "ast_hash": "00f9622fae6c6bfb450b1585f28f77cc",
     "semantic_hash": ""
   },
   "src/components/sections/Contact.tsx": {
@@ -140,13 +140,13 @@
     "semantic_hash": ""
   },
   "src/components/sections/Hero.tsx": {
-    "mtime": 1786387335.5652142,
-    "ast_hash": "1aadbf8bd207d8369d26a7ea7bfb4b53",
+    "mtime": 1786387364.5863917,
+    "ast_hash": "91fa0b3374ce3ed6852049320b683257",
     "semantic_hash": ""
   },
   "src/components/sections/Projects.tsx": {
-    "mtime": 1786387339.2232378,
-    "ast_hash": "291b6aa491047ac17a94e824f1b19a7f",
+    "mtime": 1786387439.4095497,
+    "ast_hash": "5819d4082eb2ad4d868e34c19371dc6c",
     "semantic_hash": ""
   },
   "src/components/sections/Skills.tsx": {
@@ -160,8 +160,8 @@
     "semantic_hash": ""
   },
   "src/constants/index.ts": {
-    "mtime": 1786387328.074217,
-    "ast_hash": "2ac5764526fbda860441c1efcfd9a556",
+    "mtime": 1786387439.4064167,
+    "ast_hash": "7d4aca668014e90b5a782a00b20ad007",
     "semantic_hash": ""
   },
   "src/lib/posts.ts": {
@@ -387,11 +387,6 @@
   "src/components/sections/Services.tsx": {
     "mtime": 1786386551.0032058,
     "ast_hash": "faa31535b96fd83eb38c04e98d35159b",
-    "semantic_hash": ""
-  },
-  "public/images/baking-project.png": {
-    "mtime": 1786387323.5494945,
-    "ast_hash": "c38837ec6470ef689a62aa96e0d61b6f",
     "semantic_hash": ""
   }
 }

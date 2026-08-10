@@ -1,16 +1,16 @@
 # Graph Report - portfolio  (2026-08-11)
 
 ## Corpus Check
-- 45 files · ~16,988 words
+- 46 files · ~17,145 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 390 nodes · 440 edges · 48 communities (45 shown, 3 thin omitted)
+- 393 nodes · 439 edges · 49 communities (45 shown, 4 thin omitted)
 - Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.83)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a6c373c2`
+- Built from commit: `742cb600`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -43,6 +43,7 @@
 - Socket.IO Logo
 - Webpack Logo
 - Window UI Icon
+- blog/layout.tsx
 - Docker Logo
 - File Document Icon
 - Git Logo
@@ -125,7 +126,7 @@
 - **Webpack Brand Identity Mark** — public_images_webpack_hexagonal_cube, public_images_webpack_light_blue_faces, public_images_webpack_dark_blue_core, public_images_webpack_webpack_logo [EXTRACTED 1.00]
 - **Window Icon Visual Composition** — public_images_window_window_icon, public_images_window_rectangular_frame, public_images_window_traffic_light_controls [EXTRACTED 1.00]
 
-## Communities (48 total, 3 thin omitted)
+## Communities (49 total, 4 thin omitted)
 
 ### Community 0 - "Accessibility & SEO"
 Cohesion: 0.07
@@ -133,15 +134,15 @@ Nodes (34): Web Accessibility, Image Alt Text, ARIA Roles and Labels, Clean Read
 
 ### Community 1 - "Portfolio Page Sections"
 Cohesion: 0.09
-Nodes (18): Footer(), getNavItems(), NavBar(), NavBarProps, NavItem, About(), Services(), Props (+10 more)
+Nodes (19): Footer(), getNavItems(), NavBar(), NavBarProps, NavItem, About(), Services(), Props (+11 more)
 
 ### Community 2 - "TypeScript Config"
 Cohesion: 0.07
 Nodes (26): dom, dom.iterable, esnext, next-env.d.ts, .next/types/**/*.ts, node_modules, **/*.ts, **/*.tsx (+18 more)
 
 ### Community 3 - "Blog System"
-Cohesion: 0.12
-Nodes (17): BlogPage(), metadata, BlogPost(), generateStaticParams(), CategoryList(), CategoryListProps, BlogListingProps, ListProps (+9 more)
+Cohesion: 0.13
+Nodes (16): BlogPage(), metadata, BlogPost(), generateStaticParams(), CategoryList(), CategoryListProps, BlogListingProps, ListProps (+8 more)
 
 ### Community 4 - "App Dependencies"
 Cohesion: 0.08
@@ -304,24 +305,24 @@ Cohesion: 1.00
 Nodes (3): Jest Brand Maroon (#99425B), Stylized J Face Motif, Jest Logo
 
 ## Knowledge Gaps
-- **142 isolated node(s):** `__filename`, `__dirname`, `compat`, `eslintConfig`, `nextConfig` (+137 more)
+- **144 isolated node(s):** `__filename`, `__dirname`, `compat`, `eslintConfig`, `nextConfig` (+139 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `App Dependencies` to `scripts`, `Wordle Mini-Game`?**
-  _High betweenness centrality (0.024) - this node is a cross-community bridge._
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `Dev Tooling Stack` to `scripts`?**
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `Akhil Xavier` connect `Accessibility & SEO` to `Markdown & Wix CMS`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+  _High betweenness centrality (0.010) - this node is a cross-community bridge._
 - **What connects `__filename`, `__dirname`, `compat` to the rest of the system?**
-  _142 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _144 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Accessibility & SEO` be split into smaller, more focused modules?**
   _Cohesion score 0.0659536541889483 - nodes in this community are weakly interconnected._
 - **Should `Portfolio Page Sections` be split into smaller, more focused modules?**
-  _Cohesion score 0.08912655971479501 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08571428571428572 - nodes in this community are weakly interconnected._
 - **Should `TypeScript Config` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._

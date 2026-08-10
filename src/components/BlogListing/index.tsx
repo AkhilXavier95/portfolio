@@ -1,10 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Post } from "@/types/post";
-import NavBar from "@/components/NavBar";
-import { NAV_ITEMS } from "@/constants";
 import CategoryList from "./CategoryList";
-
 import "@/styles/blogList.css";
 import SearchBlog from "./Search";
 import NoPost from "./NoPost";
@@ -17,6 +14,7 @@ interface BlogListingProps {
 const BlogListing: React.FC<BlogListingProps> = ({ posts }) => {
   const [filter, setFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const searchRef = useRef<HTMLInputElement>(null);
 
   const allTags = Array.from(new Set(posts.flatMap((post) => post.tags || [])));
 
@@ -37,44 +35,60 @@ const BlogListing: React.FC<BlogListingProps> = ({ posts }) => {
 
   const categories = ["all", ...allTags.slice(0, 5)];
 
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey) return;
+      const tag = (e.target as HTMLElement)?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      e.preventDefault();
+      searchRef.current?.focus();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   return (
-    <main className="min-h-screen">
-      <NavBar scrollOffset={72} items={[...NAV_ITEMS]} />
+    <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+      <div className="mb-8 term-panel p-5 sm:p-6">
+        <p className="text-sm">
+          <span className="term-prompt">$</span>{" "}
+          <span className="term-muted">ls ~/blog</span>
+          <span className="term-cursor" aria-hidden />
+        </p>
+        <h1 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--term-text)] sm:text-3xl">
+          blog/
+        </h1>
+        <p className="mt-2 text-sm term-muted">
+          {posts.length} files · press{" "}
+          <kbd className="text-[var(--term-green)]">/</kbd> to search
+        </p>
+      </div>
 
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="mb-12 mt-4">
-          <h1 className="font-display mb-4 py-1 text-5xl font-bold text-[var(--ink)] md:text-6xl">
-            Blog
-          </h1>
-          <p className="text-lg text-[var(--ink-muted)]">
-            Thoughts on development, design, and the journey of building for the
-            web
-          </p>
-        </div>
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <CategoryList
+          categories={categories}
+          filter={filter}
+          setFilter={setFilter}
+        />
+        <SearchBlog
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          inputRef={searchRef}
+        />
+      </div>
 
-        <div className="mb-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-          <CategoryList
-            categories={categories}
-            filter={filter}
-            setFilter={setFilter}
+      <div className="term-panel p-5 sm:p-6">
+        <p className="mb-4 text-xs term-muted">
+          {`// ${filteredPosts.length} matching`}
+        </p>
+        {filteredPosts.map((post, index) => (
+          <List
+            key={post.slug}
+            post={post}
+            index={index}
+            calculateReadTime={calculateReadTime}
           />
-          <SearchBlog
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          />
-        </div>
-
-        <div>
-          {filteredPosts.map((post, index) => (
-            <List
-              key={post.slug}
-              post={post}
-              index={index}
-              calculateReadTime={calculateReadTime}
-            />
-          ))}
-        </div>
-
+        ))}
         {filteredPosts.length === 0 && <NoPost />}
       </div>
     </main>

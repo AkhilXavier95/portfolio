@@ -18,13 +18,9 @@ const CategoryList: React.FC<CategoryListProps> = ({
           key={cat}
           type="button"
           onClick={() => setFilter(cat)}
-          className={`border px-3.5 py-2 text-sm font-medium transition-colors ${
-            filter === cat
-              ? "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]"
-              : "border-[var(--border)] bg-[var(--surface)] text-[var(--ink-muted)] hover:border-[var(--accent)] hover:text-[var(--ink)]"
-          }`}
+          className={`term-flag ${filter === cat ? "is-active" : ""}`}
         >
-          {cat === "all" ? "All Posts" : cat}
+          {cat === "all" ? "--all" : `--tag=${cat}`}
         </button>
       ))}
     </div>

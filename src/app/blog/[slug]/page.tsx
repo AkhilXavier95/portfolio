@@ -1,9 +1,8 @@
 import { getPostBySlug, getPostSlugs } from "@/lib/posts";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 import "@/styles/blog.css";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 export const generateStaticParams = async () => {
   const slugs = getPostSlugs();
@@ -21,24 +20,56 @@ const BlogPost = async ({
     const post = await getPostBySlug(slug);
 
     return (
-      <article className="mx-auto min-h-screen max-w-6xl px-6 py-10">
-        <Link
-          href="/blog"
-          className="mb-8 flex items-center font-semibold text-[var(--accent)] transition hover:text-[var(--accent-hover)]"
-        >
-          <ArrowRight className="mr-2 h-5 w-5 rotate-180 transform" />
-          Back to All Posts
-        </Link>
+      <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
+        <div className="term-panel overflow-hidden">
+          <div className="flex items-center gap-3 border-b border-[var(--term-border)] px-4 py-3 text-xs sm:text-sm">
+            <div className="term-dots" aria-hidden>
+              <span className="dot-red" />
+              <span className="dot-yellow" />
+              <span className="dot-green" />
+            </div>
+            <span className="truncate term-muted">
+              ~/blog/<span className="text-[var(--term-blue)]">{slug}.md</span>
+            </span>
+          </div>
 
-        <h1 className="font-display mb-4 text-4xl font-bold tracking-tight text-[var(--ink)] md:text-5xl">
-          {post.title}
-        </h1>
-        <p className="mb-8 text-[var(--ink-muted)]">{post.date}</p>
-        <div
-          className="markdown-content prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-        />
-      </article>
+          <div className="p-5 sm:p-8">
+            <Link
+              href="/blog"
+              className="mb-6 inline-block text-sm text-[var(--term-green)]"
+            >
+              <span className="term-muted">$</span> cd ../blog
+            </Link>
+
+            <div className="mb-8 space-y-1 border-b border-[var(--term-border)] pb-6 text-sm">
+              <p>
+                <span className="text-[var(--term-amber)]">title</span>
+                <span className="term-muted">:</span>{" "}
+                <span className="text-[var(--term-text)]">{post.title}</span>
+              </p>
+              <p>
+                <span className="text-[var(--term-amber)]">date</span>
+                <span className="term-muted">:</span>{" "}
+                <span className="term-muted">{post.date}</span>
+              </p>
+              {post.tags && post.tags.length > 0 && (
+                <p>
+                  <span className="text-[var(--term-amber)]">tags</span>
+                  <span className="term-muted">:</span>{" "}
+                  <span className="text-[var(--term-green)]">
+                    [{post.tags.map((t) => `"${t}"`).join(", ")}]
+                  </span>
+                </p>
+              )}
+            </div>
+
+            <div
+              className="markdown-content max-w-none"
+              dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+            />
+          </div>
+        </div>
+      </main>
     );
   } catch {
     notFound();

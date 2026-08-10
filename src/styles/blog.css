@@ -1,250 +1,213 @@
-@import "highlight.js/styles/github.css";
+@import "highlight.js/styles/github-dark.css";
 
-.markdown-content {
-  color: var(--ink-muted);
+.blog-terminal .markdown-content {
+  color: var(--term-text);
   line-height: 1.8;
-  font-size: 1.125rem;
+  font-size: 1rem;
   scroll-behavior: smooth;
 }
 
-.markdown-content h1 {
-  font-family: var(--font-display), Syne, system-ui, sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  margin-top: 2rem;
-  line-height: 1.2;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-}
-
-.markdown-content h2 {
-  font-family: var(--font-display), Syne, system-ui, sans-serif;
+.blog-terminal .markdown-content h1 {
   font-size: 1.75rem;
   font-weight: 700;
-  margin-bottom: 1.25rem;
-  margin-top: 2.75rem;
-  color: var(--ink);
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--accent);
-  display: inline-block;
-  letter-spacing: -0.01em;
+  margin: 2rem 0 1rem;
+  line-height: 1.25;
+  color: var(--term-text);
 }
 
-.markdown-content h3 {
-  font-family: var(--font-display), Syne, system-ui, sans-serif;
-  font-size: 1.375rem;
+.blog-terminal .markdown-content h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 2.25rem 0 0.85rem;
+  color: var(--term-green);
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--term-border);
+}
+
+.blog-terminal .markdown-content h3 {
+  font-size: 1.15rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  margin-top: 2.25rem;
-  color: var(--ink);
+  margin: 1.75rem 0 0.75rem;
+  color: var(--term-text);
   position: relative;
-  padding-left: 1rem;
+  padding-left: 0.85rem;
 }
 
-.markdown-content h3::before {
+.blog-terminal .markdown-content h3::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3px;
-  height: 70%;
-  background: var(--accent);
+  top: 0.2em;
+  bottom: 0.2em;
+  width: 2px;
+  background: var(--term-green);
 }
 
-.markdown-content h4 {
-  font-size: 1.2rem;
+.blog-terminal .markdown-content h4 {
+  font-size: 1.05rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
-  margin-top: 2rem;
-  color: var(--ink);
+  margin: 1.5rem 0 0.6rem;
+  color: var(--term-amber);
 }
 
-.markdown-content p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  color: var(--ink-muted);
+.blog-terminal .markdown-content p {
+  margin-bottom: 1.25rem;
+  color: var(--term-text);
+  opacity: 0.92;
 }
 
-.markdown-content ul,
-.markdown-content ol {
-  margin-bottom: 1.75rem;
-  margin-left: 2rem;
+.blog-terminal .markdown-content ul,
+.blog-terminal .markdown-content ol {
+  margin: 0 0 1.5rem 1.5rem;
 }
 
-.markdown-content ul {
+.blog-terminal .markdown-content ul {
   list-style-type: disc;
 }
 
-.markdown-content ol {
+.blog-terminal .markdown-content ol {
   list-style-type: decimal;
-  list-style-position: outside;
 }
 
-.markdown-content ol li {
-  padding-left: 0.5rem;
+.blog-terminal .markdown-content li {
+  margin-bottom: 0.5rem;
+  color: var(--term-text);
+  opacity: 0.92;
 }
 
-.markdown-content li {
-  margin-bottom: 0.75rem;
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--ink-muted);
-}
-
-.markdown-content li > ul,
-.markdown-content li > ol {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.markdown-content a {
-  color: var(--accent);
+.blog-terminal .markdown-content a {
+  color: var(--term-green);
   text-decoration: underline;
   text-underline-offset: 3px;
-  font-weight: 500;
-  transition: color 0.15s ease;
 }
 
-.markdown-content a:hover {
-  color: var(--accent-hover);
+.blog-terminal .markdown-content a:hover {
+  color: #6aefb0;
 }
 
-.markdown-content blockquote {
-  border-left: 3px solid var(--accent);
-  padding: 1rem 1.25rem;
+.blog-terminal .markdown-content blockquote {
+  border-left: 2px solid var(--term-green);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.5rem;
+  background: var(--term-green-dim);
+  color: var(--term-muted);
   font-style: italic;
-  color: var(--ink-muted);
-  margin-bottom: 2rem;
-  background: var(--bg-muted);
 }
 
-.markdown-content blockquote p {
+.blog-terminal .markdown-content blockquote p {
   margin-bottom: 0;
-  font-size: 1.125rem;
 }
 
-.markdown-content pre {
-  background-color: var(--bg-muted);
-  padding: 1.25rem 1.5rem;
+.blog-terminal .markdown-content pre {
+  position: relative;
+  background: #0a0d12;
+  border: 1px solid var(--term-border);
+  padding: 1rem 1rem 1rem 3.25rem;
   overflow-x: auto;
-  margin-bottom: 2rem;
-  border: 1px solid var(--border);
-  font-size: 0.9375rem;
-  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  counter-reset: line;
 }
 
-.markdown-content code:not(pre code) {
-  background-color: var(--bg-muted);
-  padding: 0.15rem 0.4rem;
-  font-size: 0.9em;
-  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
-  color: var(--ink);
-  border: 1px solid var(--border);
-}
-
-.markdown-content pre code {
+.blog-terminal .markdown-content pre code {
   background: none;
+  border: none;
   padding: 0;
-  border-radius: 0;
   font-size: inherit;
   color: inherit;
-  border: none;
+  display: block;
 }
 
-.markdown-content img {
+.blog-terminal .markdown-content pre code .hljs-ln-line,
+.blog-terminal .markdown-content pre > code {
+  counter-increment: line;
+}
+
+/* Simple line gutter via CSS when code is one block — use ::before on pre for label */
+.blog-terminal .markdown-content pre::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2.5rem;
+  background: #0e1218;
+  border-right: 1px solid var(--term-border);
+  pointer-events: none;
+}
+
+.blog-terminal .markdown-content code:not(pre code) {
+  background: #0a0d12;
+  border: 1px solid var(--term-border);
+  padding: 0.1rem 0.35rem;
+  font-size: 0.88em;
+  color: var(--term-amber);
+}
+
+.blog-terminal .markdown-content img {
   max-width: 100%;
   height: auto;
-  margin: 2rem 0;
-  border: 1px solid var(--border);
+  margin: 1.5rem 0;
+  border: 1px solid var(--term-border);
 }
 
-.markdown-content hr {
+.blog-terminal .markdown-content hr {
   border: none;
   height: 1px;
-  background: var(--border);
-  margin: 3rem 0;
+  background: var(--term-border);
+  margin: 2rem 0;
 }
 
-.markdown-content table {
+.blog-terminal .markdown-content table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 2rem;
-  font-size: 1rem;
-  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--term-border);
 }
 
-.markdown-content th,
-.markdown-content td {
-  padding: 0.875rem 1rem;
+.blog-terminal .markdown-content th,
+.blog-terminal .markdown-content td {
+  padding: 0.65rem 0.85rem;
   text-align: left;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--term-border);
 }
 
-.markdown-content th {
-  background: var(--bg-muted);
-  font-weight: 600;
-  color: var(--ink);
-  font-size: 0.875rem;
-}
-
-.markdown-content tr:hover {
-  background-color: var(--bg-muted);
-}
-
-.markdown-content strong {
-  color: var(--ink);
+.blog-terminal .markdown-content th {
+  background: #0a0d12;
+  color: var(--term-green);
   font-weight: 600;
 }
 
-.markdown-content em {
-  color: var(--ink-muted);
-  font-style: italic;
+.blog-terminal .markdown-content strong {
+  color: var(--term-text);
+  font-weight: 600;
+}
+
+.blog-terminal .markdown-content em {
+  color: var(--term-muted);
 }
 
 @media (max-width: 768px) {
-  .markdown-content {
-    font-size: 1rem;
+  .blog-terminal .markdown-content {
+    font-size: 0.95rem;
   }
 
-  .markdown-content h1 {
-    font-size: 2rem;
-    margin-top: 1.5rem;
+  .blog-terminal .markdown-content h1 {
+    font-size: 1.45rem;
   }
 
-  .markdown-content h2 {
-    font-size: 1.5rem;
-    margin-top: 2rem;
+  .blog-terminal .markdown-content h2 {
+    font-size: 1.2rem;
   }
 
-  .markdown-content h3 {
-    font-size: 1.25rem;
-    margin-top: 1.75rem;
+  .blog-terminal .markdown-content pre {
+    padding-left: 2.75rem;
+    font-size: 0.78rem;
   }
 
-  .markdown-content h4 {
-    font-size: 1.125rem;
-    margin-top: 1.5rem;
-  }
-
-  .markdown-content p,
-  .markdown-content li {
-    font-size: 1rem;
-  }
-
-  .markdown-content pre {
-    padding: 1rem;
-    font-size: 0.8125rem;
-  }
-
-  .markdown-content blockquote {
-    padding: 1rem;
-  }
-
-  .markdown-content ul,
-  .markdown-content ol {
-    margin-left: 1.5rem;
+  .blog-terminal .markdown-content pre::before {
+    width: 2rem;
   }
 }
