@@ -9,18 +9,19 @@ interface CategoryListProps {
 const CategoryList: React.FC<CategoryListProps> = ({
   categories,
   filter,
-  setFilter
+  setFilter,
 }) => {
   return (
-    <div className="flex gap-3 flex-wrap">
+    <div className="flex flex-wrap gap-2">
       {categories.map((cat) => (
         <button
           key={cat}
+          type="button"
           onClick={() => setFilter(cat)}
-          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+          className={`border px-3.5 py-2 text-sm font-medium transition-colors ${
             filter === cat
-              ? "bg-indigo-500/20 text-indigo-400 border border-indigo-500/50"
-              : "bg-slate-800/50 text-slate-400 hover:text-white border border-slate-700 hover:border-slate-600"
+              ? "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]"
+              : "border-[var(--border)] bg-[var(--surface)] text-[var(--ink-muted)] hover:border-[var(--accent)] hover:text-[var(--ink)]"
           }`}
         >
           {cat === "all" ? "All Posts" : cat}

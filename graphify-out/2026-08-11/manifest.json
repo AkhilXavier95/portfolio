@@ -140,13 +140,13 @@
     "semantic_hash": ""
   },
   "src/components/sections/Hero.tsx": {
-    "mtime": 1786386550.9836457,
-    "ast_hash": "2a80d8ad7c97ca67368099d376ab97cb",
+    "mtime": 1786387335.5652142,
+    "ast_hash": "1aadbf8bd207d8369d26a7ea7bfb4b53",
     "semantic_hash": ""
   },
   "src/components/sections/Projects.tsx": {
-    "mtime": 1786386786.8904757,
-    "ast_hash": "d418a857655324b2c527fb89f3a4cef9",
+    "mtime": 1786387339.2232378,
+    "ast_hash": "291b6aa491047ac17a94e824f1b19a7f",
     "semantic_hash": ""
   },
   "src/components/sections/Skills.tsx": {
@@ -160,8 +160,8 @@
     "semantic_hash": ""
   },
   "src/constants/index.ts": {
-    "mtime": 1786386786.8930132,
-    "ast_hash": "9c35dae5eb693ffbb6e816dbe8677f07",
+    "mtime": 1786387328.074217,
+    "ast_hash": "2ac5764526fbda860441c1efcfd9a556",
     "semantic_hash": ""
   },
   "src/lib/posts.ts": {
@@ -387,6 +387,11 @@
   "src/components/sections/Services.tsx": {
     "mtime": 1786386551.0032058,
     "ast_hash": "faa31535b96fd83eb38c04e98d35159b",
+    "semantic_hash": ""
+  },
+  "public/images/baking-project.png": {
+    "mtime": 1786387323.5494945,
+    "ast_hash": "c38837ec6470ef689a62aa96e0d61b6f",
     "semantic_hash": ""
   }
 }

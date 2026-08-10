@@ -38,12 +38,12 @@ const BlogListing: React.FC<BlogListingProps> = ({ posts }) => {
   const categories = ["all", ...allTags.slice(0, 5)];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br">
-      <NavBar scrollOffset={80} items={[...NAV_ITEMS]} />
+    <main className="min-h-screen">
+      <NavBar scrollOffset={72} items={[...NAV_ITEMS]} />
 
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="mb-12 mt-4">
-          <h1 className="font-display text-5xl py-1 font-bold mb-4 text-[var(--ink)] md:text-6xl">
+          <h1 className="font-display mb-4 py-1 text-5xl font-bold text-[var(--ink)] md:text-6xl">
             Blog
           </h1>
           <p className="text-lg text-[var(--ink-muted)]">
@@ -52,7 +52,7 @@ const BlogListing: React.FC<BlogListingProps> = ({ posts }) => {
           </p>
         </div>
 
-        <div className="mb-10 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+        <div className="mb-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
           <CategoryList
             categories={categories}
             filter={filter}
@@ -64,7 +64,7 @@ const BlogListing: React.FC<BlogListingProps> = ({ posts }) => {
           />
         </div>
 
-        <div className="space-y-6">
+        <div>
           {filteredPosts.map((post, index) => (
             <List
               key={post.slug}

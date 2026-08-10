@@ -1,11 +1,7 @@
-const NoPost = () => {
+export default function NoPost() {
   return (
-    <div className="text-center py-20">
-      <p className="text-slate-500 text-lg">
-        No posts found matching your criteria.
-      </p>
-    </div>
+    <p className="border-t border-[var(--border)] py-12 text-lg text-[var(--ink-muted)]">
+      No posts match your filters.
+    </p>
   );
-};
-
-export default NoPost;
+}
