@@ -1,6 +1,7 @@
 import { getPostBySlug, getPostSlugs } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import BlogMermaid from "@/components/BlogMermaid";
 
 import "@/styles/blog.css";
 
@@ -63,10 +64,7 @@ const BlogPost = async ({
               )}
             </div>
 
-            <div
-              className="markdown-content max-w-none"
-              dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-            />
+            <BlogMermaid html={post.contentHtml} />
           </div>
         </div>
       </main>

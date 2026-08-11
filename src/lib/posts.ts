@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
-import html from "remark-html";
+import remarkGfm from "remark-gfm";
 import { Post } from "@/types/post";
 import rehypeHighlight from "rehype-highlight";
 import rehypeStringify from "rehype-stringify";
@@ -30,7 +30,7 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
   }
 
   const processedContent = await remark()
-    .use(html)
+    .use(remarkGfm)
     .use(remarkRehype)
     .use(rehypeHighlight)
     .use(rehypeStringify)
@@ -43,7 +43,7 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     date: data.date as string,
     description: data.description as string,
     tags: data.tags ? (data.tags as string[]) : [],
-    contentHtml
+    contentHtml,
   };
 };
 
@@ -52,6 +52,6 @@ export const getAllPosts = async (): Promise<Post[]> => {
   const posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)));
 
   return posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
 };

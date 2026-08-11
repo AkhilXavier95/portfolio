@@ -159,6 +159,21 @@
   margin: 2rem 0;
 }
 
+.blog-terminal .markdown-content .mermaid-diagram {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #0a0d12;
+  border: 1px solid var(--term-border);
+}
+
+.blog-terminal .markdown-content .mermaid-diagram svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
 .blog-terminal .markdown-content table {
   width: 100%;
   border-collapse: collapse;
