@@ -73,7 +73,7 @@ flowchart TD
     A[Browser] --> B[Cached index.html]
     B --> C[main.a1b2c3d4.js]
     C --> D[OLD UI]
-    E[Server has latest deploy] --> F[main.7e91f2ab.js]
+    E[Latest deploy on server] --> F[main.7e91f2ab.js]
 ```
 
 The browser doesn’t know a deploy happened. It just thinks it already has `index.html`.
@@ -89,7 +89,7 @@ A normal reload can keep using that cached shell. A hard refresh forces a much m
 ```mermaid
 flowchart TD
     A[index.html] --> B[Keep fresh]
-    C[Hashed JS CSS images fonts] --> D[Cache aggressively]
+    C[Hashed JS / CSS / assets] --> D[Cache aggressively]
 ```
 
 | Resource                         | Cache policy                          |
@@ -128,7 +128,7 @@ If the deploy wipes the previous build’s files as soon as the new one goes liv
 
 ```mermaid
 flowchart TD
-    A[User opens checkout on Build 1] --> B[Deploy goes live]
+    A[Opens checkout on Build 1] --> B[Deploy goes live]
     B --> C[Build 1 assets deleted]
     C --> D[User clicks Next]
     D --> E[Request step3 chunk]
@@ -146,7 +146,7 @@ Don’t delete the previous build the instant the next one ships. Keep the last 
 flowchart LR
     A[Build 1 assets] --> B[Still retained]
     C[Build 2 assets] --> D[Still retained]
-    E[Build 3 deploys] --> F[index.html updates now]
+    E[Build 3 deploys] --> F[HTML updates now]
     B --> G[Old sessions keep working]
     D --> G
 ```

@@ -22,7 +22,7 @@ const BlogPost = async ({
 
     return (
       <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
-        <div className="term-panel overflow-hidden">
+        <div className="term-panel overflow-x-auto">
           <div className="flex items-center gap-3 border-b border-[var(--term-border)] px-4 py-3 text-xs sm:text-sm">
             <div className="term-dots" aria-hidden>
               <span className="dot-red" />

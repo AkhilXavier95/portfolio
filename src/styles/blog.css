@@ -161,6 +161,7 @@
 
 .blog-terminal .markdown-content .mermaid-diagram {
   overflow-x: auto;
+  overflow-y: visible;
   margin-bottom: 1.5rem;
   padding: 1rem;
   background: #0a0d12;
@@ -169,9 +170,16 @@
 
 .blog-terminal .markdown-content .mermaid-diagram svg {
   display: block;
-  max-width: 100%;
+  /* Keep intrinsic size so node labels aren't clipped by CSS scaling */
+  max-width: none;
   height: auto;
   margin: 0 auto;
+}
+
+.blog-terminal .markdown-content .mermaid-diagram .node Label,
+.blog-terminal .markdown-content .mermaid-diagram .node foreignObject,
+.blog-terminal .markdown-content .mermaid-diagram .node span {
+  overflow: visible;
 }
 
 .blog-terminal .markdown-content table {
